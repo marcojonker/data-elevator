@@ -1,0 +1,14 @@
+{
+  "name": "data-migrator",
+  "version": "1.0.0",
+  "description": "Data migrations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies" : {
+    "command-line-args": "*"
+  },
+  "author": "Marco Jonker",
+  "license": "ISC"
+}
