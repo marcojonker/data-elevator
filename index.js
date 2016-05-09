@@ -3,6 +3,7 @@
 var commandLineArgs = require('command-line-args');
 
 var cli = commandLineArgs([
+  { name: "command", type: String, multiple: false, defaultOption: true },
   { name: 'help', alias:'?', type: Boolean },
   { name: 'create', type: Boolean },
   { name: 'init', type: Boolean },
@@ -18,29 +19,19 @@ var cli = commandLineArgs([
 
 var options = cli.parse();
 var commandHandler = null;
-var command = "help";
+var command = options.command ? options.command : "help";
+var CommandHandler = require('./lib/migrator-' + command + '.js');
 
-//Print help information
-if(options.help === false) {  
-    if(options.init === true) {
-        command = "init";  
-    } else if(options.create === true) {
-        command = "create";  
-    } else if(options.up === true) {
-        command = "up";  
-    } else if(options.down === true) {
-        command = "down";  
-    } 
+if(CommandHandler) {
+    var commandHandler = new CommandHandler(options);
+
+    if(commandHandler !== null) {
+        commandHandler.run(function(error) {
+            if(error) {
+                console.log(error.message);
+            }
+        });
+    }
+} else  {
+    console.log('Command not found: ' + command);
 }
-
-var CommandHandler = require('migrator-' + command + '.js');
-var commandHandler = new CommandHandler(options);
-if(commandHandler !== null) {
-    commandHandler.run(options);
-}
-
-
-
-
-console.log(options);
-

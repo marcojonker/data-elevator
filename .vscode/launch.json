@@ -2,12 +2,92 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Launch",
+			"name": "Help",
 			"type": "node",
 			"request": "launch",
 			"program": "${workspaceRoot}/index.js",
 			"stopOnEntry": false,
-			"args": ["--verbose"],
+			"args": ["help"],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
+			"sourceMaps": false,
+			"outDir": null
+		},
+		{
+			"name": "Init",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/index.js",
+			"stopOnEntry": false,
+			"args": ["init"],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
+			"sourceMaps": false,
+			"outDir": null
+		},
+		{
+			"name": "Create",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/index.js",
+			"stopOnEntry": false,
+			"args": ["create"],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
+			"sourceMaps": false,
+			"outDir": null
+		},
+		{
+			"name": "Up",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/index.js",
+			"stopOnEntry": false,
+			"args": ["up"],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
+			"sourceMaps": false,
+			"outDir": null
+		},
+		{
+			"name": "Down",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/index.js",
+			"stopOnEntry": false,
+			"args": ["down"],
 			"cwd": "${workspaceRoot}",
 			"preLaunchTask": null,
 			"runtimeExecutable": null,

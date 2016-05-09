@@ -1,0 +1,10 @@
+Show help information:
+    Command:    data-migrator help
+    Parameters: 
+                
+Start new migration project
+    Command:    data-migrator init
+    Parameters:
+        --  
+        
+
