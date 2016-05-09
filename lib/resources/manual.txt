@@ -1,10 +1,39 @@
-Show help information:
-    Command:    data-migrator help
-    Parameters: 
-                
-Start new migration project
+
+
+*************************************************************************
+**       Data migrator for migrating data sources up and down          **
+*************************************************************************
+
+Start new migration project, run this command for initializing migrations
+for your project
+
     Command:    data-migrator init
     Parameters:
         --  
         
+-------------------------------------------------------------------------        
+Create a new migration
+
+    Command:    data-migrator create
+    Parameters:
+        --version   (-v, required: no)   
+        --name      (-n, required: yes)   
+
+-------------------------------------------------------------------------
+Migrate up to a specific migration
+
+    Command:    data-migrator up
+    Parameters:
+        --timestamp (-t, required: no)   
+        --version   (-v, required: no)   
+        
+-------------------------------------------------------------------------
+Migrate down to a specific migration
+
+    Command:    data-migrator down
+    Parameters:
+        --timestamp (-t, required: no)   
+        --version   (-v, required: no)   
+
+
 

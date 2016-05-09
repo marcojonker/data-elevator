@@ -15,7 +15,7 @@ var cli = commandLineArgs([
 var options = cli.parse();
 var commandHandler = null;
 var command = options.command ? options.command : "help";
-var CommandHandler = require('./lib/migrator-' + command + '.js');
+var CommandHandler = require('./lib/commands/migrator-' + command + '.js');
 
 if(CommandHandler) {
     var commandHandler = new CommandHandler(options);
