@@ -4,11 +4,6 @@ var commandLineArgs = require('command-line-args');
 
 var cli = commandLineArgs([
   { name: "command", type: String, multiple: false, defaultOption: true },
-  { name: 'help', alias:'?', type: Boolean },
-  { name: 'create', type: Boolean },
-  { name: 'init', type: Boolean },
-  { name: 'up', type: Boolean },
-  { name: 'down', type: Boolean },
   { name: 'debug', type: Boolean },
   { name: 'migrations-dir', type: String, default: './migrator/migrations'},
   { name: 'config-dir', type: String, default: './migrator'},
