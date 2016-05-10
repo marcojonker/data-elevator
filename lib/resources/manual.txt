@@ -4,19 +4,24 @@
 **       Data migrator for migrating data sources up and down          **
 *************************************************************************
 
+Parameter description:
+--<parameter_name> (<alias>, <r=required, o=optional>)      <description>     
+
+-------------------------------------------------------------------------        
 Start new migration project, run this command for initializing migrations
 for your project
 
     Command:    data-migrator init
     Parameters:
-        --  
+        --type (-t, r)          Type of migrator (FILE, MONGODB)     
+        --migrations-dir (, o)  Location of migrations (def=./migrations)
         
 -------------------------------------------------------------------------        
 Create a new migration
 
     Command:    data-migrator create
     Parameters:
-        --version   (-v, required: no)   
+        --version   (-v)   
         --name      (-n, required: yes)   
 
 -------------------------------------------------------------------------
