@@ -27,7 +27,7 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/migrator.js",
 			"stopOnEntry": false,
-			"args": ["init", "--type=FILE", "--migrations-dir=\"./mig test\""],
+			"args": ["init", "--type=FILE"],
 			"cwd": "${workspaceRoot}",
 			"preLaunchTask": null,
 			"runtimeExecutable": null,
@@ -61,6 +61,27 @@
 			"sourceMaps": false,
 			"outDir": null
 		},
+{
+			"name": "Create title version",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/migrator.js",
+			"stopOnEntry": false,
+			"args": ["create","--title=\"test conversie\"", "--version=1.0.1"],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
+			"sourceMaps": false,
+			"outDir": null
+		},		
+		
 		{
 			"name": "Up",
 			"type": "node",

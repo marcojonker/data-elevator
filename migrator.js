@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Migrator
  * Processor for migrations
