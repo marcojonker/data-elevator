@@ -61,7 +61,7 @@
 			"sourceMaps": false,
 			"outDir": null
 		},
-{
+		{
 			"name": "Create title version",
 			"type": "node",
 			"request": "launch",
@@ -81,7 +81,6 @@
 			"sourceMaps": false,
 			"outDir": null
 		},		
-		
 		{
 			"name": "Up",
 			"type": "node",
