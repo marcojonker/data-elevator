@@ -1,16 +1,17 @@
-var environment = process.env.NODE_ENV ? process.env.NODE_ENV : "Development";
+var environment = process.env.NODE_ENV ? process.env.NODE_ENV : "development";
 
 var config = {
     environment : environment,
-    statusFilePath: ""
+    collectionName: "_migrations",
+    type: "MONGODB"
 }
 
 switch(environment) {
-    case "Development":
-        config.statusFilePath = null;
+    case "development":
+        config.connectionUrl = 'mongodb://192.168.99.100:27017/test';
         break;
-    case "Production":
-        config.statusFilePath = null;
+    case "production":
+        config.connectionUrl = null;
         break;
 }
 
