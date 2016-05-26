@@ -7,6 +7,8 @@
 'use strict'
 
 var MigratorBase = require('./lib/migrator-base.js');
+var ConsoleLogger = require('./lib/logger/console-logger.js');
+
 var util = require('util');
 
 /**
@@ -18,7 +20,7 @@ var Migrator = function() {
 
 util.inherits(Migrator, MigratorBase);
 
-var migrator = new Migrator();
+var migrator = new Migrator(new ConsoleLogger(false));
 
 migrator.run(function(error) {
     if(error) {
