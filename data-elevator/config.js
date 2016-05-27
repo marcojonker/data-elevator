@@ -3,9 +3,9 @@ var environment = process.env.NODE_ENV ? process.env.NODE_ENV : "developent";
 var config = {
     environment : environment,
     connectionUrl: "",
-    collectionName: "_data_elevator",
     levelControllerType: "MONGODB", //Use FILE for file based config
     mongodb : {
+        collectionName: "_floors",
         connectionOptions: null,
         connectionUrl: null
     },

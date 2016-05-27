@@ -3,8 +3,8 @@ var environment = process.env.NODE_ENV ? process.env.NODE_ENV : "developent";
 var config = {
     environment : environment,
     connectionUrl: "",
-    collectionName: "_migrations",
-    type: "MONGODB",
+    collectionName: "_floors",
+    levelControllerType: "MONGODB",
     connectionOptions: null
 }
 
