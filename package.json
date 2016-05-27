@@ -9,7 +9,8 @@
   "dependencies" : {
     "command-line-args": "*",
     "mongodb": "*",
-    "async": "*"
+    "async": "*",
+    "deasync": "*"
   },
   "author": "Marco Jonker",
   "license": "ISC"

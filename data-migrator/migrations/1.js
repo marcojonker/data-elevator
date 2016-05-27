@@ -1,8 +1,11 @@
+
+
 module.exports = {
-    onUp = function(callback) {
-        
+
+    onUp : function(migrationParameters, callback) {
+        return callback(null);
     }, 
-    onDown = function(callback) {
-        
+    onDown : function(migrationParameters, callback) {
+        return callback(null);
     }
 }
