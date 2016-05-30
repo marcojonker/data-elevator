@@ -38,7 +38,7 @@ node ./node-modules/data-elevator/elevator.js construct
 
 ```
 #!shell
-node ./data-elevator/elevator.js add -t="add phone number to users"
+node ./data-elevator/elevator.js add --name="add phone number to users"
 
 ```
 
