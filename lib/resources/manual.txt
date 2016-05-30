@@ -1,44 +1,62 @@
-
-
-*************************************************************************
-**       Data migrator for migrating data sources up and down          **
-*************************************************************************
+***********************************************************************************
+**                                                                               **                  
+**                               Data elevator                                   ** 
+**                  for migrating data sources up and down                       **
+**                                                                               **                  
+***********************************************************************************
 
 Parameter description:
---<parameter_name> (<alias>, <r=required, o=optional>)      <description>     
+    --<parameter_name> (<alias>, <r=required, o=optional>)           <description>     
 
--------------------------------------------------------------------------        
-Start new migration project, run this command for initializing migrations
-for your project
+----------------------------------------------------------------------------------
+construct: Construct a new data elevator for the current project
 
-    Command:    data-migrator init
+    Command: 'node ./data-elevator construct'
+    
     Parameters:
-        --type (-t, r)          Type of migrator (FILE, MONGODB)     
-        --migrations-dir (, o)  Location of migrations (def=./migrations)
+        --working-dir= (-w, o) Data elevator working dir (default=./data-elevator)
+        --config-dir=  (-c, o) Data elevator config dir (default=./data-elevator)
+        --verbose      (-v, o) Verbose mode
         
--------------------------------------------------------------------------        
-Create a new migration
+----------------------------------------------------------------------------------     
+add: Create a new floor (a floor is a layer of migrations)
 
-    Command:    data-migrator create
+    Command:   'node ./data-elevator add'
+    
     Parameters:
-        --version   (-v)   
-        --name      (-n, required: yes)   
+        --name         (-n, o) Custom name for the migration   
+        --working-dir= (-w, o) Data elevator working dir (default=./data-elevator)
+        --config-dir=  (-c, o) Data elevator config dir (default=./data-elevator)
+        --verbose      (-v, o) Verbose mode
 
--------------------------------------------------------------------------
-Migrate up to a specific migration
+----------------------------------------------------------------------------------
+up: Elevate data up to a specific level
 
-    Command:    data-migrator up
+    Command:    'node ./data-elevator up'
+    
     Parameters:
-        --timestamp (-t, required: no)   
-        --version   (-v, required: no)   
+        --floor       (-f, o) Floor to move to, if undefined elevator moves to the top   
+        --working-dir (-w, o) Data elevator working dir (default=./data-elevator)
+        --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+        --verbose     (-v, o) Verbose mode
         
--------------------------------------------------------------------------
-Migrate down to a specific migration
+----------------------------------------------------------------------------------
+down: De-elevate data to a specific level
 
-    Command:    data-migrator down
+    Command:    'node ./data-elevator down'
+
     Parameters:
-        --timestamp (-t, required: no)   
-        --version   (-v, required: no)   
+        --floor       (-f, r) Floor to move to
+        --working-dir (-w, o) Data elevator working dir (default=./data-elevator)
+        --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+        --verbose     (-v, o) Verbose mode
 
+----------------------------------------------------------------------------------
+status: Display current status of the elevator
 
+    Command:    data-elevator status
 
+    Parameters:
+        --working-dir (-w, o) Data elevator working dir (default=./data-elevator)
+        --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+        --verbose     (-v, o) Verbose mode
