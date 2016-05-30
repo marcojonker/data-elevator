@@ -24,10 +24,9 @@ npm install
 
 * Construct a new data elevator for the project
 
-
 ```
 #!shell
-
+node ./node-modules/data-elevator/elevator.js construct
 
 ```
 
@@ -35,10 +34,9 @@ npm install
 
 ```
 #!shell
-
+node ./data-elevator/elevator.js add
 
 ```
-
 
 * Enter you migration code in the generated floor file located in './data-elevator/floors/'
 * Move the elevator up to migrate your data up
@@ -46,7 +44,7 @@ npm install
 ```
 #!shell
 
-
+node ./data-elevator/elevator.js up
 
 ```
 
