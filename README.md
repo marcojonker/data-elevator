@@ -20,13 +20,6 @@ The data elevator is a utility for migrating data sources. The code is build bas
 npm install
 ```
 
-* Create a new data elevator in you project
-```
-#!shell
-
-node ./nodemodules/data-elevator/elevator.js construct
-```
-
 # USAGE #
 
 Parameters explained
@@ -37,8 +30,25 @@ Parameters explained
 --<parameter_name> (<alias>, <r=required, o=optional>) <description>     
 
 ```
+### Construct ###
 
-### Add a floor ###
+Construct a new data elevator in you project. In principle this command is only performed once per project
+
+```
+#!shell
+    Command: 'node ./node-modules/data-elevator/elevator.js construct'
+    
+    Parameters:
+        --working-dir= (-w, o) Data elevator working dir (default=./data-elevator)
+        --verbose      (-v, o) Verbose mode
+
+    Examples:
+        node ./node-modules/data-elevator/elevator.js construct
+        node ./node-modules/data-elevator/elevator.js construct  -c="./my-data-elevator"
+
+```
+
+### Add ###
 
 A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
 
@@ -57,26 +67,29 @@ A new floor file will be created in which data migrations can be implemented. It
         node ./data-elevator/elevator.js add
         node ./data-elevator/elevator.js add -n="migrating users" -c="./config"
 
-
 ```
 
-Examples
-```
-#!shell
-node ./data-elevator/elevator.js add'
+### Up ###
 
-```
-
-
-
-### Move up ###
-
-Elevator will move up and perform the migrations of each floor it passes by.
+Elevator will move up and perform the migrations for each floor passed by.
 
 ```
 #!shell
 
-node ./data-elevator/elevator.js up
+    Command:    'node ./data-elevator/elevator.js up'
+    
+    Parameters:
+        --floor       (-f, o) Floor to move to, if undefined elevator moves to the top   
+        --working-dir (-w, o) Data elevator working dir (default=./data-elevator)
+        --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+        --verbose     (-v, o) Verbose mode
+
+    Examples:
+        node ./data-elevator/elevator.js up
+        node ./data-elevator/elevator.js up -f=5 -c="./config"
+
+
+
 ```
 
 
