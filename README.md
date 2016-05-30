@@ -172,4 +172,4 @@ Display the last action of the elevator.
 
 # Custom logger #
 
-# Initailizing custom stuff #
+# Initializing custom stuff #
