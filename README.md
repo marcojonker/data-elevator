@@ -36,6 +36,8 @@ npm install
 ```
 
 # QUICKSTART #
+*
+Note: It is best to run commands from the root directory of you project because the project handles directories relative to the location the process was started from.*
 
 * Construct a new data elevator for the project.
 
