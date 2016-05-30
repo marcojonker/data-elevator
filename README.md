@@ -27,11 +27,37 @@ npm install
 node ./nodemodules/data-elevator/elevator.js construct
 ```
 
-* Add a new floor
+# USAGE #
+
+### Add a floor ###
+
+A new floor file will be created in which data migrations can be implemented.
+
 ```
 #!shell
 
-node ./data-elevator/elevator.js add
+    Command:   'node ./data-elevator add'
+    
+    Parameters:
+        --name         (-n, o) Custom name for the migration   
+        --working-dir= (-w, o) Data elevator working dir (default=./data-elevator)
+        --config-dir=  (-c, o) Data elevator config dir (default=./data-elevator)
+        --verbose      (-v, o) Verbose mode
+
+```
+
+Additional parameters:
+
+
+
+### Move up ###
+
+Elevator will move up and perform the migrations of each floor it passes by.
+
+```
+#!shell
+
+node ./data-elevator/elevator.js up
 ```
 
 
