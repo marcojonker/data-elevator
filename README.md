@@ -171,3 +171,5 @@ Display the last action of the elevator.
 # Custom level controller #
 
 # Custom logger #
+
+# Initailizing custom stuff #
