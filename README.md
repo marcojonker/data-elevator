@@ -2,13 +2,18 @@
 
 The data elevator is an easy to use and very flexible utility for migrating data sources. The whole project and terminology is based on a real elevator. Every floor is a migration and the current level the current active migration.
 
-### Why is it easy to use? ### 
+### Why is it easy to use? ###
 
-Because with the default out of the box configuration you will be up and running migrations storing the current migration status in file or MongoDb.
+It is easy to used because the default out of the box configuration will be up and running migrations storing the current migrations levels in file or MongoDb within minuts.
 
 ### Why is it very flexible? ###
 
-Due to the custom level controllers it is easy to store your migrations status in any kind of data source. Custom loggers provide the option to use any kind of logger need. And floor templates gives total control over the generated floors.
+It is flexible because the data elevator allows many simple customizations like:
+
+* Floor templates gives total control over the generated floors.
+* Custom level controllers provide easy to store current migration level in any kind of data source. 
+* Custom loggers provide the option to use any kind of logger need. 
+* onInitialize provide the possibility to initialize any kind of custom component needed during the migration process
 
 # FEATURES #
 
