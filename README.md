@@ -426,9 +426,9 @@ The elevator can also run from code.
     var elevator = new Elevator(null, null);
 
     elevator.runCommand('help', {}, function(error) {});
-    elevator.runCommand('add', , function(error) {});
-    elevator.runCommand('up', , function(error) {});
-    elevator.runCommand('down', , function(error) {});
-    elevator.runCommand('status', , function(error) {});
+    elevator.runCommand('add', {'name': 'update users'}, function(error) {});
+    elevator.runCommand('up', , {'floor':3}, function(error) {});
+    elevator.runCommand('down', {'floor':2}, , function(error) {});
+    elevator.runCommand('status', {} , function(error) {});
 
 ```
