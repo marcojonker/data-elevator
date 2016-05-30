@@ -169,3 +169,5 @@ Display the last action of the elevator.
 # Floor template #
 
 # Custom level controller #
+
+# Custom logger #
