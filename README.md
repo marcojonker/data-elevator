@@ -305,6 +305,7 @@ A custom level controller needs to be derived from BaseLevelController ('data-el
 
 ```
 #!javascript
+
 /**
  * FileLevelController
  * Store and retrieve current level from file
@@ -367,5 +368,31 @@ FileLevelController.prototype.retrieveCurrentLevel = function(callback) {
 };
 
 module.exports = FileLevelController;
+
+```
+
+After creating the custom level controller it needs to be plugin in to the elevator in the elevator constuctor in the projects elevator file ('<working-dir>/elevator.js'):
+
+
+```
+#!javascript
+
+var util = require('util');
+var ElevatorBase = require('data-elevator/elevator-base.js');
+var MyCustomLevelController = require('<path-to>/my-custom-level-controller.js');
+
+/**
+ * Constructor
+ */
+var Elevator = function(logger, LevelController) {
+    Elevator.super_.apply(this, arguments);
+};
+
+util.inherits(Elevator, ElevatorBase);
+
+var elevator = new Elevator(null, MyCustomLevelController);
+
+//Run the elevator
+elevator.run(function(error) { });
 
 ```
