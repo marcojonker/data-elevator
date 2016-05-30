@@ -295,4 +295,9 @@ The method onInitialize an onUnInitialize can be overwritten to initialize custo
 
 The first parameter of the constructor the the Elevator class can take a custom logger. If this parameter is null the ConsoleLogger will be used. A custom logger must be derived from BaseLogger ('data-elevator/lib/logger/base-logger.js') and must implement all methods of the BaseLogger.
 
-# Custom level controller #
+### Custom level controller ###
+
+The custom level controller is what makes the data elevator extremely flexible. It provides the opportunity to store the current level of the elevator in any place needed just by plugging in your own level controller. So if only have a Postgres database or a webservice to store your elevator level, just build a custom level controller and plug it in.
+
+
+fdsfa
