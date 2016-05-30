@@ -1,6 +1,14 @@
 # DATA ELEVATOR? #
 
-The data elevator is a utility for migrating data sources. The code is build based on a real elevator in which each 'floor' can contain specific data migrations. The current status of the elevator can be stored in a 'plain file' or 'mongodb' out of the box, but custom storage can easily be implemented by building a custom LevelController. 
+The data elevator is an easy to use and very flexible utility for migrating data sources. The whole project and terminology is based on a real elevator. Every floor is a migration and the current level the current active migration.
+
+### Why is it easy to use? ### 
+
+Because with the default out of the box configuration you will be up and running migrations storing the current migration status in file or MongoDb.
+
+### Why is it very flexible? ###
+
+Due to the custom level controllers it is easy to store your migrations status in any kind of data source. Custom loggers provide the option to use any kind of logger need. And floor templates gives total control over the generated floors.
 
 # FEATURES #
 
