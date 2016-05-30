@@ -1,8 +1,8 @@
-# Data elevator? #
+# DATA ELEVATOR? #
 
 The data elevator is a utility for migrating data sources. The code is build based on a real elevator in which each 'floor' can contain specific data migrations. The current status of the elevator can be stored in a 'plain file' or 'mongodb' out of the box, but custom storage can easily be implemented by building a custom LevelController. 
 
-# Features #
+# FEATURES #
 
 * Custom template for generated floor files
 * Custom location of configuration file
@@ -164,7 +164,7 @@ Display the last action of the elevator.
 
 ```
 
-# Configuration #
+# CONFIGURATION #
 
 
 * levelControllerType: The level controller is used to store the current state of migration. Two options can be selected. *MONGODB*: Used to store the level current level of the elevator in a MongoDb database. This is useful when the application runs at multiple servers with one data source. And *FILE*: Used to store the current level of the elevator in a plain file.
@@ -193,7 +193,7 @@ var config = {
 
 
 
-# Floor template #
+# FLOOR TEMPLATE #
 
 When a new floor is added the file 'floor-template.js' from the working directory is used as the template. Alterations to floor template are added to new floors. The minimal template contains at least the 'onUp' and 'onDown' function.
 
@@ -237,7 +237,7 @@ var FloorWorkerParameters = function(config, logger, floor) {
 
 
 
-# Custom stuff #
+# CUSTOM STUFF #
 
 All the custom can be implemented in '<working-dir>/elevator.js'. 
 
