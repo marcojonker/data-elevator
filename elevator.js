@@ -21,9 +21,5 @@ util.inherits(Elevator, ElevatorBase);
 
 var elevator = new Elevator(new ConsoleLogger(false));
 
-elevator.run(function(error) {
-    if(error) {
-        console.log(error.message);
-    }
-});
+elevator.run(function(error) { });
 
