@@ -1,4 +1,8 @@
+# What is data elevator #
+
 The data elevator is a utility for migrating data sources. The code is build based on a real elevator in which each 'floor' can contain specific data migrations. The current status of the elevator can be stored in a 'plain file' or 'mongodb' out of the box, but custom storage can easily be implemented by building a custom LevelController. 
+
+# Features #
 
 * Custom template for generated floor files
 * Custom location of configuration file
@@ -34,7 +38,7 @@ node ./node-modules/data-elevator/elevator.js construct
 
 ```
 #!shell
-node ./data-elevator/elevator.js add
+node ./data-elevator/elevator.js add -t="add phone number to users"
 
 ```
 
