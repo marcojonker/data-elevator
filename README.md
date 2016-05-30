@@ -239,6 +239,60 @@ var FloorWorkerParameters = function(config, logger, floor) {
 
 # Custom stuff #
 
-# Custom logger #
+All the custom can be implemented in '<working-dir>/elevator.js'. 
+
+
+```
+#!javascript
+
+/**
+ * Elevator
+**/
+
+'use strict'
+
+var util = require('util');
+var ElevatorBase = require('data-elevator/elevator-base.js');
+
+/**
+ * Constructor
+ */
+var Elevator = function(logger, LevelController) {
+    Elevator.super_.apply(this, arguments);
+};
+
+util.inherits(Elevator, ElevatorBase);
+
+/**
+ * Initialize custom components after all migrations have been applied
+ * @param callback(error)
+ */
+ElevatorBase.prototype.onInitialize = function(callback) {
+    return callback(null);
+};
+
+/**
+ * Uninitiailze custom components after all migrations have been applied
+ * @param callback(error)
+ */
+ElevatorBase.prototype.onUnInitialize = function(callback) {
+    return callback(null);
+}
+
+//A custom logger or level controller can be set here if needed
+var elevator = new Elevator(null, null);
+
+//Run the elevator
+elevator.run(function(error) { });
+
+```
+
+### Initializing custom components ###
+
+The method onInitialize an onUnInitialize can be overwritten to initialize custom components that need to be accessed during the migrations but only need to be initialized ones.
+
+### Custom logger ###
+
+The first parameter of the constructor the the Elevator class can take a custom logger. If this parameter is null the ConsoleLogger will be used. A custom logger must be derived from BaseLogger ('data-elevator/lib/logger/base-logger.js') and must implement all methods of the BaseLogger.
 
 # Custom level controller #
