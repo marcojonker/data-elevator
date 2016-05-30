@@ -26,7 +26,7 @@ npm install
 
 # QUICKSTART #
 
-* Construct a new data elevator for the project
+* Construct a new data elevator for the project.
 
 ```
 #!shell
@@ -34,7 +34,7 @@ node ./node-modules/data-elevator/elevator.js construct
 
 ```
 
-* Add a new floor
+* Add a new floor.
 
 ```
 #!shell
@@ -42,8 +42,8 @@ node ./data-elevator/elevator.js add --name="add phone number to users"
 
 ```
 
-* Enter you migration code in the generated floor file located in './data-elevator/floors/'
-* Move the elevator up to migrate your data up
+* Enter you migration code in the generated floor file located in './data-elevator/floors/'.
+* Move the elevator up to migrate your data.
 
 ```
 #!shell
@@ -52,10 +52,9 @@ node ./data-elevator/elevator.js up
 
 ```
 
-
 # COMMANDS #
 
-Parameters explained
+Parameters explained:
 
 ```
 #!shell
@@ -65,7 +64,7 @@ Parameters explained
 ```
 ### Construct ###
 
-Construct a new data elevator in you project. In principle this command is only performed once per project
+Construct a new data elevator in you project. In principle this command is only performed once per project.
 
 ```
 #!shell
@@ -147,7 +146,7 @@ Elevator will move down and perform the migrations for each floor passed by.
 
 ### Status ###
 
-Display the last action of the elevator
+Display the last action of the elevator.
 
 ```
 #!shell
