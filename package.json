@@ -1,16 +1,15 @@
 {
-  "name": "data-migrator",
+  "name": "data-elevator",
   "version": "1.0.0",
-  "description": "Data migrations",
-  "main": "migrator.js",
+  "description": "Utility for migration data sources",
+  "main": "elevator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies" : {
     "command-line-args": "*",
     "mongodb": "*",
-    "async": "*",
-    "deasync": "*"
+    "async": "*"
   },
   "author": "Marco Jonker",
   "license": "ISC"
