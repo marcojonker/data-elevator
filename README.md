@@ -168,6 +168,48 @@ Display the last action of the elevator.
 
 # Floor template #
 
+When a new floor is added the file 'floor-template.js' from the working directory is used as the template. Alterations to floor template are added to new floors. The minimal template contains at least the 'onUp' and 'onDown' function.
+
+```
+#!javascript
+module.exports = {
+    /**
+     * Data transformation that need to be performed when migrating the data up
+     * @param migrationParameters - instance of FloorWorkerParameters
+     * @param callback(error) - If an error is returned then all the subsequent migration will not be handled
+     */
+    onUp : function(migrationParameters, callback) {
+        return callback(null);
+    }, 
+    /**
+     * Data transformation that need to be performed when migrating the data down
+     * @param migrationParameters - instance of FloorWorkerParameters
+     * @param callback(error) - If an error is returned then all the subsequent migration will not be handled
+     */
+    onDown : function(migrationParameters, callback) {
+        return callback(null);
+    }
+}
+
+```
+
+### FloorWorkerParameters ###
+
+The FloorWorkerParameters gives access to the current configuration, the logger and the current floor object. 
+
+```
+#!javascript
+
+var FloorWorkerParameters = function(config, logger, floor) {
+    this.config = config;
+    this.floor = floor;
+    this.logger = logger;
+};
+
+```
+
+
+
 # Custom level controller #
 
 # Custom logger #
