@@ -20,6 +20,37 @@ The data elevator is a utility for migrating data sources. The code is build bas
 npm install
 ```
 
+# QUICKSTART #
+
+* Construct a new data elevator for the project
+
+
+```
+#!shell
+
+
+```
+
+* Add a new floor
+
+```
+#!shell
+
+
+```
+
+
+* Enter you migration code in the generated floor file located in './data-elevator/floors/'
+* Move the elevator up to migrate your data up
+
+```
+#!shell
+
+
+
+```
+
+
 # COMMANDS #
 
 Parameters explained
@@ -131,3 +162,5 @@ Display the last action of the elevator
         node ./data-elevator/elevator.js status -c="./config"
 
 ```
+
+# Configuration #
