@@ -4,7 +4,7 @@ The data elevator is an easy to use and very flexible utility for migrating data
 
 ### Why is it easy to use? ###
 
-It is easy to used because the default out of the box configuration will be up and running migrations storing the current migrations levels in file or MongoDb within minuts.
+It is easy to used because the default out of the box configuration will be up and running migrations storing the current migrations levels in file or MongoDb within minutes.
 
 ### Why is it very flexible? ###
 
