@@ -62,7 +62,7 @@ Parameters explained:
 --<parameter_name> (<alias>, <r=required, o=optional>) <description>     
 
 ```
-### Construct ###
+### construct ###
 
 Construct a new data elevator in you project. In principle this command is only performed once per project.
 
@@ -80,7 +80,7 @@ Construct a new data elevator in you project. In principle this command is only 
 
 ```
 
-### Add ###
+### add ###
 
 A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
 
@@ -101,7 +101,7 @@ A new floor file will be created in which data migrations can be implemented. It
 
 ```
 
-### Up ###
+### up ###
 
 Elevator will move up and perform the migrations for each floor passed by.
 
@@ -122,7 +122,7 @@ Elevator will move up and perform the migrations for each floor passed by.
 
 ```
 
-### Down ###
+### down ###
 
 Elevator will move down and perform the migrations for each floor passed by.
 
@@ -144,7 +144,7 @@ Elevator will move down and perform the migrations for each floor passed by.
 
 ```
 
-### Status ###
+### status ###
 
 Display the last action of the elevator.
 
