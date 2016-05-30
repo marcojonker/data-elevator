@@ -29,24 +29,43 @@ node ./nodemodules/data-elevator/elevator.js construct
 
 # USAGE #
 
-### Add a floor ###
-
-A new floor file will be created in which data migrations can be implemented.
+Parameters explained
 
 ```
 #!shell
 
-    Command:   'node ./data-elevator add'
+--<parameter_name> (<alias>, <r=required, o=optional>) <description>     
+
+```
+
+### Add a floor ###
+
+A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
+
+```
+#!shell
+
+    Command:   'node ./data-elevator/elevator.js add'
     
     Parameters:
-        --name         (-n, o) Custom name for the migration   
+        --name         (-n, o) Custom name of the floor
         --working-dir= (-w, o) Data elevator working dir (default=./data-elevator)
         --config-dir=  (-c, o) Data elevator config dir (default=./data-elevator)
         --verbose      (-v, o) Verbose mode
 
+    Examples:
+        node ./data-elevator/elevator.js add
+        node ./data-elevator/elevator.js add -n="migrating users" -c="./config"
+
+
 ```
 
-Additional parameters:
+Examples
+```
+#!shell
+node ./data-elevator/elevator.js add'
+
+```
 
 
 
