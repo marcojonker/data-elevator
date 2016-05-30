@@ -20,7 +20,7 @@ The data elevator is a utility for migrating data sources. The code is build bas
 npm install
 ```
 
-# USAGE #
+# COMMANDS #
 
 Parameters explained
 
@@ -88,8 +88,6 @@ Elevator will move up and perform the migrations for each floor passed by.
         node ./data-elevator/elevator.js up
         node ./data-elevator/elevator.js up -f=5 -c="./config"
 
-
-
 ```
 
 ### Down ###
@@ -114,21 +112,22 @@ Elevator will move down and perform the migrations for each floor passed by.
 
 ```
 
+### Status ###
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Display the last action of the elevator
 
-### Quick start ###
+```
+#!shell
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+    Command:    'node ./data-elevator/elevator.js status'
 
-### Commands ###
+    Parameters:
+        --working-dir (-w, o) Data elevator working dir (default=./data-elevator)
+        --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+        --verbose     (-v, o) Verbose mode
 
-### Configuration ###
+    Examples:
+        node ./data-elevator/elevator.js status
+        node ./data-elevator/elevator.js status -c="./config"
 
-### Source explained ###
-
-elevator engine
-floor controller
-level controller
+```
