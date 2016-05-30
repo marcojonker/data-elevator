@@ -92,8 +92,27 @@ Elevator will move up and perform the migrations for each floor passed by.
 
 ```
 
+### Down ###
+
+Elevator will move down and perform the migrations for each floor passed by.
+
+```
+#!shell
+
+    Command:    'node ./data-elevator/elevator.js down'
+
+    Parameters:
+        --floor       (-f, r) Floor to move to
+        --working-dir (-w, o) Data elevator working dir (default=./data-elevator)
+        --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+        --verbose     (-v, o) Verbose mode
 
 
+    Examples:
+        node ./data-elevator/elevator.js down -f=2
+        node ./data-elevator/elevator.js down -f=5 -c="./config"
+
+```
 
 
 This README would normally document whatever steps are necessary to get your application up and running.
