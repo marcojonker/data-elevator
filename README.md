@@ -17,7 +17,7 @@ It is flexible because the data elevator allows many simple customizations like:
 
 # FEATURES #
 
-* Custom template for generated floor files
+* Custom floor template for generated floor files
 * Custom location of configuration file
 * Custom location of floor files
 * Out of the box storage of migration status in 'file' or 'mongodb'
@@ -25,11 +25,9 @@ It is flexible because the data elevator allows many simple customizations like:
 * Custom logger
 * Display current migration status
 
-
 # INSTALL #
 
 * Add the data-elevator to packages.json
-
 * Install the module
 ```
 #!shell
