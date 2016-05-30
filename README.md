@@ -177,7 +177,6 @@ Display the last action of the elevator.
 
 # CONFIGURATION #
 
-
 * levelControllerType: The level controller is used to store the current state of migration. Two options can be selected. *MONGODB*: Used to store the level current level of the elevator in a MongoDb database. This is useful when the application runs at multiple servers with one data source. And *FILE*: Used to store the current level of the elevator in a plain file.
 * mongoDbLevelControllerConfig.collectionName: Name of the collection to store the current elevator level in
 * mongoDbLevelControllerConfig.connectionUrl: Connection url for MongoDb
@@ -200,9 +199,6 @@ var config = {
 }
 
 ```
-
-
-
 
 # FLOOR TEMPLATE #
 
@@ -405,5 +401,34 @@ var elevator = new Elevator(null, MyCustomLevelController);
 
 //Run the elevator
 elevator.run(function(error) { });
+
+```
+
+# RUNNING FROM CODE #
+
+The elevator can also run from code.
+
+```
+#!javascript
+
+    var util = require('util');
+    var ElevatorBase = require('data-elevator/elevator-base.js');
+
+    /**
+     * Constructor
+     */
+    var Elevator = function(logger, LevelController) {
+        Elevator.super_.apply(this, arguments);
+    };
+
+    util.inherits(Elevator, ElevatorBase);
+
+    var elevator = new Elevator(null, null);
+
+    elevator.runCommand('help', {}, function(error) {});
+    elevator.runCommand('add', , function(error) {});
+    elevator.runCommand('up', , function(error) {});
+    elevator.runCommand('down', , function(error) {});
+    elevator.runCommand('status', , function(error) {});
 
 ```
