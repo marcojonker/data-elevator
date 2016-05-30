@@ -413,24 +413,24 @@ The elevator can also run from code.
 ```
 #!javascript
 
-    var util = require('util');
-    var ElevatorBase = require('data-elevator/elevator-base.js');
+var util = require('util');
+var ElevatorBase = require('data-elevator/elevator-base.js');
 
-    /**
-     * Constructor
-     */
-    var Elevator = function(logger, LevelController) {
-        Elevator.super_.apply(this, arguments);
-    };
+/**
+ * Constructor
+ */
+var Elevator = function(logger, LevelController) {
+    Elevator.super_.apply(this, arguments);
+};
 
-    util.inherits(Elevator, ElevatorBase);
+util.inherits(Elevator, ElevatorBase);
 
-    var elevator = new Elevator(null, null);
+var elevator = new Elevator(null, null);
 
-    elevator.runCommand('help', {}, function(error) {});
-    elevator.runCommand('add', {'name': 'update users'}, function(error) {});
-    elevator.runCommand('up', , {'floor':3}, function(error) {});
-    elevator.runCommand('down', {'floor':2}, , function(error) {});
-    elevator.runCommand('status', {} , function(error) {});
+elevator.runCommand('help', {}, function(error) {});
+elevator.runCommand('add', {'name': 'update users'}, function(error) {});
+elevator.runCommand('up', , {'floor':3}, function(error) {});
+elevator.runCommand('down', {'floor':2}, , function(error) {});
+elevator.runCommand('status', {} , function(error) {});
 
 ```
