@@ -15,7 +15,7 @@ It is flexible because the data elevator allows many simple customizations like:
 * Custom loggers provide the option to use any kind of logger need. 
 * onInitialize provide the possibility to initialize any kind of custom component needed during the migration process
 
-# FEATURES #
+### Features ###
 
 * Custom floor template for generated floor files
 * Custom location of configuration file
