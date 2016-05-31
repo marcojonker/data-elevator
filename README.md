@@ -241,15 +241,20 @@ All the custom can be implemented in '<working-dir>/elevator.js'.
 
 /**
  * Elevator
+ * Data elevator
 **/
 
 'use strict'
 
 var util = require('util');
-var ElevatorBase = require('data-elevator/elevator-base.js');
+var ElevatorBase = require('data-elevator/lib/elevator-engine/elevator-base');
+var ConsoleLogger = require('data-elevator/lib/logger/console-logger');
+var LevelController = require('data-elevator/lib/level-controllers/file-level-controller');
 
 /**
  * Constructor
+ * @param logger
+ * @param LevelController
  */
 var Elevator = function(logger, LevelController) {
     Elevator.super_.apply(this, arguments);
@@ -273,8 +278,8 @@ ElevatorBase.prototype.onUnInitialize = function(callback) {
     return callback(null);
 }
 
-//A custom logger or level controller can be set here if needed
-var elevator = new Elevator(null, null);
+
+var elevator = new Elevator(new ConsoleLogger(false), LevelController);
 
 //Run the elevator
 elevator.run(function(error) { });
