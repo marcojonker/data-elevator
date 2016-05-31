@@ -1,26 +1,26 @@
 # DATA ELEVATOR? #
 
-The data elevator is an easy to use, extendible and very flexible utility for migrating data sources. The whole project and terminology is based on a real elevator. Every floor is a migration and the current level the current active migration.
+The data elevator is an easy to use and very flexible utility for migrating data sources. The whole project and terminology is based on a real elevator. Every floor is a migration and the current level the current active migration.
 
 ### Why is it easy to use? ###
 
 It is easy to used because the default out of the box configuration will be up and running migrations within minutes.
-
-### Why is it extendible? ###
-
-The default way to store the current migration level is in a file. But due to custom level controllers it is very easy to implement other storage locations like MongoDb.
-
-Available extensions:
-* 'data-elevator-mongodb' - store migrations in MongoDb instead of a file
 
 ### Why is it very flexible? ###
 
 It is flexible because the data elevator allows many simple customizations like:
 
 * Floor templates gives total control over the generated floors.
-* Custom level controllers provide easy to store current migration level in any kind of data source. 
-* Custom loggers provide the option to use any kind of logger need. 
-* onInitialize provide the possibility to initialize any kind of custom component needed during the migration process
+* Custom level controllers provide an easy way to store current migration level in any kind of data source like MongoDb, Postgres or a custom webservice.
+* Custom loggers provide the option to use any kind of logger needed. 
+* onInitialize makes it possible to initialize any kind of custom component needed during the migration process
+
+# EXTENSIONS (LIKE MONGODB)#
+
+Some custom level controller implementations are already available in NPM:
+
+* data-elevator-mongodb ([npm](https://bitbucket.org/cacadu/data-elevator-mongodb/overview), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb out of the box
+
 
 # INSTALL #
 
