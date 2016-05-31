@@ -81,12 +81,12 @@ Construct a new data elevator in you project. In principle this command is only 
     Command: 'node ./node-modules/data-elevator/elevator.js construct'
     
     Parameters:
-        --working-dir= (-w, o) Data elevator working dir (default=./data-elevator)
+        --working-dir= (-w, o) Location to construct elevator (def=./data-elevator)
         --verbose      (-v, o) Verbose mode
 
     Examples:
         node ./node-modules/data-elevator/elevator.js construct
-        node ./node-modules/data-elevator/elevator.js construct  -c="./my-data-elevator"
+        node ./node-modules/data-elevator/elevator.js construct  -c="./config"
 
 ```
 
@@ -97,11 +97,10 @@ A new floor file will be created in which data migrations can be implemented. It
 ```
 #!shell
 
-    Command:   'node ./data-elevator/elevator.js add'
+    Command:   'node ./<working-dir>/elevator.js add'
     
     Parameters:
         --name         (-n, o) Custom name of the floor
-        --working-dir= (-w, o) Data elevator working dir (default=./data-elevator)
         --config-dir=  (-c, o) Data elevator config dir (default=./data-elevator)
         --verbose      (-v, o) Verbose mode
 
@@ -118,11 +117,10 @@ Elevator will move up and perform the migrations for each floor passed by.
 ```
 #!shell
 
-    Command:    'node ./data-elevator/elevator.js up'
+    Command:    'node ./<working-dir>/elevator.js up'
     
     Parameters:
         --floor       (-f, o) Floor to move to, if undefined elevator moves to the top   
-        --working-dir (-w, o) Data elevator working dir (default=./data-elevator)
         --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
         --verbose     (-v, o) Verbose mode
 
@@ -139,14 +137,12 @@ Elevator will move down and perform the migrations for each floor passed by.
 ```
 #!shell
 
-    Command:    'node ./data-elevator/elevator.js down'
+    Command:    'node ./<working-dir>/elevator.js down'
 
     Parameters:
         --floor       (-f, r) Floor to move to
-        --working-dir (-w, o) Data elevator working dir (default=./data-elevator)
         --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
         --verbose     (-v, o) Verbose mode
-
 
     Examples:
         node ./data-elevator/elevator.js down -f=2
@@ -161,10 +157,9 @@ Display the last action of the elevator.
 ```
 #!shell
 
-    Command:    'node ./data-elevator/elevator.js status'
+    Command:    'node ./<working-dir>/elevator.js status'
 
     Parameters:
-        --working-dir (-w, o) Data elevator working dir (default=./data-elevator)
         --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
         --verbose     (-v, o) Verbose mode
 
