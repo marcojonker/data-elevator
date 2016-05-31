@@ -228,8 +228,7 @@ var FloorWorkerParameters = function(config, logger, floor) {
 
 # CUSTOM STUFF #
 
-All the custom can be implemented in '<working-dir>/elevator.js'. 
-
+All the custom stuff can be implemented in '<working-dir>/elevator.js'.
 
 ```
 #!javascript
