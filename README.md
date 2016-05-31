@@ -227,7 +227,7 @@ All the custom stuff can be implemented in '<working-dir>/elevator.js'.
 var util = require('util');
 var ElevatorBase = require('data-elevator/lib/elevator-engine/elevator-base');
 var ConsoleLogger = require('data-elevator/lib/logger/console-logger');
-var LevelController = require('data-elevator/lib/level-controllers/file-level-controller');
+var FileLevelController = require('data-elevator/lib/level-controllers/file-level-controller');
 
 /**
  * Constructor
@@ -257,7 +257,7 @@ ElevatorBase.prototype.onUnInitialize = function(callback) {
 }
 
 
-var elevator = new Elevator(new ConsoleLogger(false), LevelController);
+var elevator = new Elevator(new ConsoleLogger(false), FileLevelController);
 
 //Run the elevator
 elevator.run(function(error) { });
@@ -360,7 +360,9 @@ The elevator can also run from code.
 #!javascript
 
 var util = require('util');
-var ElevatorBase = require('data-elevator/elevator-base.js');
+var ElevatorBase = require('data-elevator/lib/elevator-engine/elevator-base.js');
+var ConsoleLogger = require('data-elevator/lib/logger/console-logger');
+var FileLevelController = require('data-elevator/lib/level-controllers/file-level-controller');
 
 /**
  * Constructor
@@ -371,7 +373,7 @@ var Elevator = function(logger, LevelController) {
 
 util.inherits(Elevator, ElevatorBase);
 
-var elevator = new Elevator(null, null);
+var elevator = new Elevator(new ConsoleLogger(false), FileLevelController);
 
 elevator.runCommand('help', {}, function(error) {});
 elevator.runCommand('add', {'name': 'update users'}, function(error) {});
