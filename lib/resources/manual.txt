@@ -29,6 +29,7 @@ add: Create a new floor (a floor is a layer of migrations)
     Parameters:
         --name         (-n, o) Custom name of the floor
         --config-dir=  (-c, o) Data elevator config dir (default=./data-elevator)
+        --working-dir= (-w, o) Location to construct elevator (def=./data-elevator)
         --verbose      (-v, o) Verbose mode
 
     Examples:
@@ -43,6 +44,7 @@ up: Elevate data up to a specific level
     Parameters:
         --floor       (-f, o) Floor to move to, if undefined elevator moves to the top   
         --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+        --working-dir= (-w, o) Location to construct elevator (def=./data-elevator)
         --verbose     (-v, o) Verbose mode
         
     Examples:
@@ -57,6 +59,7 @@ down: De-elevate data to a specific level
     Parameters:
         --floor       (-f, r) Floor to move to
         --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+        --working-dir= (-w, o) Location to construct elevator (def=./data-elevator)
         --verbose     (-v, o) Verbose mode
 
     Examples:
@@ -70,6 +73,7 @@ status: Display current status of the elevator
 
     Parameters:
         --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+        --working-dir= (-w, o) Location to construct elevator (def=./data-elevator)
         --verbose     (-v, o) Verbose mode
 
     Examples:

@@ -5,11 +5,11 @@
 'use strict'
 
 var async = require('async');
-var ElevatorBase = require('./lib/elevator-base.js');
+var ElevatorBase = require('./lib/elevator-engine/elevator-base.js');
 var ConsoleLogger = require('./lib/logger/console-logger.js');
-var LevelController = require('./lib/controllers/level-controllers/mongodb-level-controller.js');
+var FileLevelController = require('./lib/level-controllers/file-level-controller.js');
 
-var elevator = new ElevatorBase(new ConsoleLogger(true), LevelController);
+var elevator = new ElevatorBase(new ConsoleLogger(true), FileLevelController, __dirname);
 
 var commandTests = [
     { title: "DISPLAY HELP", command: 'help', options: {} }, 
