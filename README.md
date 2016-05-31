@@ -198,18 +198,18 @@ When a new floor is added the file 'floor-template.js' from the working director
 module.exports = {
     /**
      * Data transformation that need to be performed when migrating the data up
-     * @param migrationParameters - instance of FloorWorkerParameters
+     * @param floorWorkerParameters - instance of FloorWorkerParameters
      * @param callback(error) - If an error is returned then all the subsequent migration will not be handled
      */
-    onUp : function(migrationParameters, callback) {
+    onUp : function(floorWorkerParameters, callback) {
         return callback(null);
     }, 
     /**
      * Data transformation that need to be performed when migrating the data down
-     * @param migrationParameters - instance of FloorWorkerParameters
+     * @param floorWorkerParameters - instance of FloorWorkerParameters
      * @param callback(error) - If an error is returned then all the subsequent migration will not be handled
      */
-    onDown : function(migrationParameters, callback) {
+    onDown : function(floorWorkerParameters, callback) {
         return callback(null);
     }
 }
