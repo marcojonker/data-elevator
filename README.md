@@ -274,89 +274,67 @@ The first parameter of the constructor the the Elevator class can take a custom 
 
 ### Custom level controller ###
 
-The custom level controller is what makes the data elevator extremely flexible. It provides the opportunity to store the current level of the elevator in any place needed just by plugging in your own level controller. So if only have a Postgres database or a webservice to store your elevator level, just build a custom level controller and plug it in.
+The custom level controller is what makes the data elevator extremely flexible. It provides the opportunity to store the current level of the elevator in any place needed just by plugging in your own level controller. So if there is the need to store the elevator level in a Postgres database of even a custom webservice just build a custom level controller and plug it in.
 
-
-A custom level controller needs to be derived from BaseLevelController ('data-elevator/lib/controllers/level-controllers/base-level-controller.js') and needs to implement the methods 'saveCurrentLevel' and 'retrieveCurrentLevel'. A good example for this is the 'FileLevelController' which stores and retrieves the current level from a plain file:
+A custom level controller needs to be derived from BaseLevelController and needs to implement the methods 'saveCurrentLevel' and 'retrieveCurrentLevel'. A simple example of a custom level controller is shown below. *(Note: we left out all the error handling to keep the example short and to the point)*
 
 
 ```
 #!javascript
 
 /**
- * FileLevelController
- * Store and retrieve current level from file
+ * MyLevelController
 **/
 
 'use strict'
 
 var util = require('util');
 var fs = require('fs')
-var BaseLevelController = require('./base-level-controller.js');
-var Errors = require('../../errors/elevator-errors.js');
-var Level = require('./level.js');
-var FileUtils = require('../../utils/file-utils').FileUtils;
-var CreateDirectory = require('../../utils/file-utils').CreateDirectory;
+var BaseLevelController = require('data-elevator/lib/level-controllers/base-level-controller');
+var Level = require('data-elevator/lib/level-controllers/level');
 
 /**
  * Constructor
  * @param config
  */
-var FileLevelController = function(config) {
-    FileLevelController.super_.apply(this, arguments);
+var MyLevelController = function(config) {
+    MyLevelController.super_.apply(this, arguments);
 };
 
-util.inherits(FileLevelController, BaseLevelController);
+util.inherits(MyLevelController, BaseLevelController);
 
 /**
  * Save the current level
  * @param level
  * @param callback(error)
  */
-FileLevelController.prototype.saveCurrentLevel = function(level, callback) {
-    var config = this.config.fileLevelControllerConfig;
-    
-    try {
-        FileUtils.createDirectory(new CreateDirectory(config.levelDir, false));
-        fs.writeFileSync(config.levelFilePath, JSON.stringify(level));
-        return callback(null);
-    } catch(error) {
-        return callback(Errors.generalError("Failed to write level file '" + config.levelFilePath + "'", error));
-    }
+MyLevelController.prototype.saveCurrentLevel = function(level, callback) {
+    fs.writeFileSync(config.levelControllerConfig.levelFilePath, JSON.stringify(level));
+    return callback(null);
 };
 
 /**
  * Retrieve the current level
  * @param callback(error, level)
  */
-FileLevelController.prototype.retrieveCurrentLevel = function(callback) {
-    var config = this.config.fileLevelControllerConfig;
-    var level = null;
-    try {
-        if(FileUtils.fileExists(config.levelFilePath)) {
-            var json = fs.readFileSync(config.levelFilePath, "utf8");
-            level = Level.fromJson(json);
-        }
-        
-        return callback(null, level);
-    } catch(error) {
-        return callback(Errors.generalError('Failed to read level file ' . config.levelFilePath, error));
-    }
+MyLevelController.prototype.retrieveCurrentLevel = function(callback) {
+    var json = fs.readFileSync(filePath, "utf8");
+    return callback(error, Level.fromJson(json));
 };
 
-module.exports = FileLevelController;
-
+module.exports = MyLevelController;
 ```
 
-After creating the custom level controller it needs to be plugin in to the elevator in the elevator constuctor in the projects elevator file ('<working-dir>/elevator.js'):
+After creating the custom level controller it needs to be plugin in to the elevator constuctor ('<working-dir>/elevator.js'):
 
 
 ```
 #!javascript
 
 var util = require('util');
-var ElevatorBase = require('data-elevator/elevator-base.js');
-var MyCustomLevelController = require('<path-to>/my-custom-level-controller.js');
+var ElevatorBase = require('data-elevator/lib/elevator-engine/elevator-base');
+var ConsoleLogger = require('data-elevator/lib/logger/console-logger');
+var MyLevelController = require('<path-to>/my-level-controller.js');
 
 /**
  * Constructor
@@ -367,7 +345,7 @@ var Elevator = function(logger, LevelController) {
 
 util.inherits(Elevator, ElevatorBase);
 
-var elevator = new Elevator(null, MyCustomLevelController);
+var elevator = new Elevator(new ConsoleLogger(false), MyLevelController);
 
 //Run the elevator
 elevator.run(function(error) { });
