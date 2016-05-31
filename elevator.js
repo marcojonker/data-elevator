@@ -1,25 +1,14 @@
 /**
  * Elevator
  * Data elevator
- * 
 **/
 
 'use strict'
 
-var util = require('util');
-var ElevatorBase = require('./lib/elevator-base.js');
+var ElevatorBase = require('./lib/elevator-engine/elevator-base.js');
 var ConsoleLogger = require('./lib/logger/console-logger.js');
+var LevelController = require('./lib/level-controllers/file-level-controller.js');
 
-/**
- * Constructor
- */
-var Elevator = function(logger, LevelController) {
-    Elevator.super_.apply(this, arguments);
-};
-
-util.inherits(Elevator, ElevatorBase);
-
-var elevator = new Elevator(new ConsoleLogger(false));
-
+var elevator = new ElevatorBase(new ConsoleLogger(false), LevelController, __dirname);
 elevator.run(function(error) { });
 

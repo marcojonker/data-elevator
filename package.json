@@ -8,7 +8,6 @@
   },
   "dependencies" : {
     "command-line-args": "*",
-    "mongodb": "*",
     "async": "*"
   },
   "author": "Marco Jonker",
