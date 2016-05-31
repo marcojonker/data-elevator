@@ -176,23 +176,13 @@ Display the last action of the elevator.
 
 # CONFIGURATION #
 
-* levelControllerType: The level controller is used to store the current state of migration. Two options can be selected. *MONGODB*: Used to store the level current level of the elevator in a MongoDb database. This is useful when the application runs at multiple servers with one data source. And *FILE*: Used to store the current level of the elevator in a plain file.
-* mongoDbLevelControllerConfig.collectionName: Name of the collection to store the current elevator level in
-* mongoDbLevelControllerConfig.connectionUrl: Connection url for MongoDb
-* mongoDbLevelControllerConfig.connectionOptions: Options for connecting to the MongoDb database (options for method 'MongoClient.connect')
-* fileLevelControllerConfig.fileName: Name of the file to store the current elevator level in
+* levelControllerConfig.fileName: Name of the file to store the current elevator level in
 
 ```
 #!javascript
 
 var config = {
-    levelControllerType: "MONGODB", //Use FILE for file level controller config
-    mongoDbLevelControllerConfig : {
-       collectionName: "_data_elevator",
-       connectionOptions: null,
-       connectionUrl: null
-    },
-    fileLevelControllerConfig: {
+    levelControllerConfig: {
         fileName: "current_level.json"
     }
 }
