@@ -46,8 +46,9 @@ node ./node-modules/data-elevator/elevator.js construct
 #!shell
 node ./data-elevator/elevator.js add --name="add phone number to users"
 ```
-3. Enter you migration code in the generated floor file located in './data-elevator/floors/'.
-4. Move the elevator up to migrate your data.
+3 Enter you migration code in the generated floor file located in './data-elevator/floors/'.
+
+4 Move the elevator up to migrate your data.
 ```
 #!shell
 node ./data-elevator/elevator.js up
@@ -104,17 +105,16 @@ Elevator will move up and perform the migrations for each floor passed by.
 
 ```
 #!shell
-
-    Command:    'node ./<working-dir>/elevator.js up'
+Command:    'node ./<working-dir>/elevator.js up'
     
-    Parameters:
-        --floor       (-f, o) Floor to move to, if undefined elevator moves to the top   
-        --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
-        --verbose     (-v, o) Verbose mode
+Parameters:
+    --floor       (-f, o) Floor to move to, if undefined elevator moves to the top   
+    --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+    --verbose     (-v, o) Verbose mode
 
-    Examples:
-        node ./data-elevator/elevator.js up
-        node ./data-elevator/elevator.js up -f=5 -c="./config"
+Examples:
+    node ./data-elevator/elevator.js up
+    node ./data-elevator/elevator.js up -f=5 -c="./config"
 
 ```
 
@@ -124,18 +124,16 @@ Elevator will move down and perform the migrations for each floor passed by.
 
 ```
 #!shell
+Command:    'node ./<working-dir>/elevator.js down'
 
-    Command:    'node ./<working-dir>/elevator.js down'
+Parameters:
+    --floor       (-f, r) Floor to move to
+    --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+    --verbose     (-v, o) Verbose mode
 
-    Parameters:
-        --floor       (-f, r) Floor to move to
-        --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
-        --verbose     (-v, o) Verbose mode
-
-    Examples:
-        node ./data-elevator/elevator.js down -f=2
-        node ./data-elevator/elevator.js down -f=5 -c="./config"
-
+Examples:
+    node ./data-elevator/elevator.js down -f=2
+    node ./data-elevator/elevator.js down -f=5 -c="./config"
 ```
 
 ### status ###
@@ -144,17 +142,15 @@ Display the last action of the elevator.
 
 ```
 #!shell
+Command:    'node ./<working-dir>/elevator.js status'
 
-    Command:    'node ./<working-dir>/elevator.js status'
+Parameters:
+    --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
+    --verbose     (-v, o) Verbose mode
 
-    Parameters:
-        --config-dir  (-c, o) Data elevator config dir (default=./data-elevator)
-        --verbose     (-v, o) Verbose mode
-
-    Examples:
-        node ./data-elevator/elevator.js status
-        node ./data-elevator/elevator.js status -c="./config"
-
+Examples:
+    node ./data-elevator/elevator.js status
+    node ./data-elevator/elevator.js status -c="./config"
 ```
 
 # CONFIGURATION #
