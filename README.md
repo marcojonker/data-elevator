@@ -36,30 +36,21 @@ npm install
 *
 Note: It is best to run commands from the root directory of you project because the project handles directories relative to the location the process was started from.*
 
-* Construct a new data elevator for the project.
-
+1 Construct a new data elevator for the project.
 ```
 #!shell
 node ./node-modules/data-elevator/elevator.js construct
-
 ```
-
-* Add a new floor.
-
+2 Add a new floor.
 ```
 #!shell
 node ./data-elevator/elevator.js add --name="add phone number to users"
-
 ```
-
-* Enter you migration code in the generated floor file located in './data-elevator/floors/'.
-* Move the elevator up to migrate your data.
-
+3. Enter you migration code in the generated floor file located in './data-elevator/floors/'.
+4. Move the elevator up to migrate your data.
 ```
 #!shell
-
 node ./data-elevator/elevator.js up
-
 ```
 
 # COMMANDS #
@@ -78,16 +69,15 @@ Construct a new data elevator in you project. In principle this command is only 
 
 ```
 #!shell
-    Command: 'node ./node-modules/data-elevator/elevator.js construct'
+Command: 'node ./node-modules/data-elevator/elevator.js construct'
     
-    Parameters:
-        --working-dir= (-w, o) Location to construct elevator (def=./data-elevator)
-        --verbose      (-v, o) Verbose mode
+Parameters:
+    --working-dir= (-w, o) Location to construct elevator (def=./data-elevator)
+    --verbose      (-v, o) Verbose mode
 
-    Examples:
-        node ./node-modules/data-elevator/elevator.js construct
-        node ./node-modules/data-elevator/elevator.js construct  -c="./config"
-
+Examples:
+    node ./node-modules/data-elevator/elevator.js construct
+    node ./node-modules/data-elevator/elevator.js construct  -c="./config"
 ```
 
 ### add ###
@@ -96,18 +86,16 @@ A new floor file will be created in which data migrations can be implemented. It
 
 ```
 #!shell
-
-    Command:   'node ./<working-dir>/elevator.js add'
+Command:   'node ./<working-dir>/elevator.js add'
     
-    Parameters:
-        --name         (-n, o) Custom name of the floor
-        --config-dir=  (-c, o) Data elevator config dir (default=./data-elevator)
-        --verbose      (-v, o) Verbose mode
+Parameters:
+    --name         (-n, o) Custom name of the floor
+    --config-dir=  (-c, o) Data elevator config dir (default=./data-elevator)
+    --verbose      (-v, o) Verbose mode
 
-    Examples:
-        node ./data-elevator/elevator.js add
-        node ./data-elevator/elevator.js add -n="migrating users" -c="./config"
-
+Examples:
+    node ./data-elevator/elevator.js add
+    node ./data-elevator/elevator.js add -n="migrating users" -c="./config"
 ```
 
 ### up ###
