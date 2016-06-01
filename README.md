@@ -380,10 +380,10 @@ util.inherits(Elevator, ElevatorBase);
 
 var elevator = new Elevator(new ConsoleLogger(false), FileLevelController);
 
-elevator.runCommand('help', {}, function(error) {});
-elevator.runCommand('add', {'name': 'update users'}, function(error) {});
-elevator.runCommand('up', , {'floor':3}, function(error) {});
-elevator.runCommand('down', {'floor':2}, , function(error) {});
-elevator.runCommand('status', {} , function(error) {});
+elevator.runCommand({'command': 'help'}, function(error) {});
+elevator.runCommand({'command': 'help', 'name': 'update users'}, function(error) {});
+elevator.runCommand({'command': 'up', 'floor':3}, function(error) {});
+elevator.runCommand({'command': 'down', 'floor':2}, , function(error) {});
+elevator.runCommand({'command': 'status'} , function(error) {});
 
 ```
