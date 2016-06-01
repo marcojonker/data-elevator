@@ -1,13 +1,14 @@
 {
   "name": "data-elevator",
-  "version": "1.0.0",
-  "description": "Utility for migration data sources",
+  "version": "0.0.1",
+  "description": "Utility for migration data in data source",
   "main": "elevator.js",
+  "keywords": ["migrate", "data", "datasource", "utility", "tootl", "migrations"],
   "scripts": {
     "test": "test.js"
   },
   "dependencies" : {
-    "async": "*"
+    "async": "4.2.3"
   },
   "author": "Marco Jonker",
   "license": "ISC"
