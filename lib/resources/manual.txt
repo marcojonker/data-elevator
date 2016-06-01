@@ -14,6 +14,7 @@ construct: Construct a new data elevator for the current project
     Command: 'node ./mode-modules/data-elevator/elevator.js construct'
     
     Parameters:
+        --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
         --working-dir= (-w=, o) Location to construct elevator (./data-elevator)
         --verbose      (-v,  o) Verbose mode
 
