@@ -1,7 +1,7 @@
 {
   "name": "data-elevator",
   "version": "0.0.1",
-  "description": "Utility for migration data in data source",
+  "description": "Flexible utility for migration of data sources",
   "main": "elevator.js",
   "keywords": ["migrate", "data", "datasource", "utility", "tootl", "migrations"],
   "bugs": "https://bitbucket.org/cacadu/data-elevator/issues/",
