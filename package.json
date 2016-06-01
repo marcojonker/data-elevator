@@ -23,7 +23,7 @@
     "url" : "git@bitbucket.org:cacadu/data-elevator.git"
   },
   "dependencies" : {
-    "async": ">=3.0.0"
+    "async": "^1.x"
   },
   "engines": {
     "node": ">=5.0.0"
