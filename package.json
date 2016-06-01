@@ -18,12 +18,14 @@
     "test.js",
     "lib"
   ],
-  "bin": "./elevator.js",
   "repository" : { 
     "type" : "git",
     "url" : "git@bitbucket.org:cacadu/data-elevator.git"
   },
   "dependencies" : {
-    "async": "*"
+    "async": ">=3.0.0"
+  },
+  "engines": {
+    "node": ">=5.0.0"
   }
 }
