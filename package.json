@@ -4,12 +4,29 @@
   "description": "Utility for migration data in data source",
   "main": "elevator.js",
   "keywords": ["migrate", "data", "datasource", "utility", "tootl", "migrations"],
+  "bugs": "https://bitbucket.org/cacadu/data-elevator/issues/",
+  "license": "MIT",
   "scripts": {
     "test": "test.js"
   },
-  "dependencies" : {
-    "async": "4.2.3"
-  },
   "author": "Marco Jonker",
-  "license": "ISC"
+  "files": [
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "elevator.js",
+    "test.js",
+    "lib"
+  ],
+  "bin": "./elevator.js",
+  "repository" : { 
+    "type" : "git",
+    "url" : "git@bitbucket.org:cacadu/data-elevator.git"
+  },
+  "dependencies" : {
+    "async": "~4.2"
+  },
+  "engines" : { 
+    "node" : "~6.0" 
+  } 
 }
