@@ -12,32 +12,32 @@ var FileLevelController = require('./lib/level-controllers/file-level-controller
 var elevator = new ElevatorBase(new ConsoleLogger(true), FileLevelController, __dirname);
 
 var commandTests = [
-    { title: "DISPLAY HELP", command: 'help', options: {} }, 
-    { title: "CONSTRUCT ELEVATOR", command: 'construct', options: { "working-dir": "./test-data-elevator" } },
-    { title: "ADD FLOOR", command: 'add', options: { "working-dir": "./test-data-elevator" } },
-    { title: "ADD FLOOR", command: 'add', options: { "working-dir": "./test-data-elevator", "name": "second floor" } },
-    { title: "ADD FLOOR", command: 'add', options: { "working-dir": "./test-data-elevator" } },
-    { title: "ADD FLOOR", command: 'add', options: { "working-dir": "./test-data-elevator" } },
-    { title: "ADD FLOOR", command: 'add', options: { "working-dir": "./test-data-elevator", "name": "update invoice data"} },
-    { title: "ADD FLOOR", command: 'add', options: { "working-dir": "./test-data-elevator" } },
-    { title: "ADD FLOOR", command: 'add', options: { "working-dir": "./test-data-elevator", "name": "add phone number to users" } },
-    { title: "ADD FLOOR", command: 'add', options: { "working-dir": "./test-data-elevator" } },
-    { title: "ADD FLOOR", command: 'add', options: { "working-dir": "./test-data-elevator" } },
-    { title: "MOVE UP TO TOP FLOOR", command: 'up', options: { "working-dir": "./test-data-elevator" } },
-    { title: "MOVE UP TO TOP FLOOR", command: 'up', options: { "working-dir": "./test-data-elevator" } },
-    { title: "MOVE DOWN TO 5", command: 'down', options: { "working-dir": "./test-data-elevator", "floor": 5 } },
-    { title: "MOVE DOWN TO 2", command: 'down', options: { "working-dir": "./test-data-elevator", "floor": 2 } },
-    { title: "MOVE DOWN TO 2", command: 'down', options: { "working-dir": "./test-data-elevator", "floor": 2 } },
-    { title: "MOVE UP TO 2", command: 'up', options: { "working-dir": "./test-data-elevator", "floor": 2 } },
-    { title: "MOVE UP TO 6", command: 'up', options: { "working-dir": "./test-data-elevator", "floor": 6 } },
-    { title: "Print status", command: 'status', options: { "working-dir": "./test-data-elevator" } },
+    { title: "DISPLAY HELP",        command: { "command": 'help'} }, 
+    { title: "CONSTRUCT ELEVATOR",  command: { "command": "construct", "workingDir": "./test-data-elevator" } },
+    { title: "ADD FLOOR",           command: {"command": "add", "workingDir": "./test-data-elevator" } },
+    { title: "ADD FLOOR",           command: { "command": "add", "workingDir": "./test-data-elevator", "name": "second floor" } },
+    { title: "ADD FLOOR",           command: { "command": "add", "workingDir": "./test-data-elevator" } },
+    { title: "ADD FLOOR",           command: { "command": "add", "workingDir": "./test-data-elevator" } },
+    { title: "ADD FLOOR",           command: { "command": "add", "workingDir": "./test-data-elevator", "name": "update invoice data"} },
+    { title: "ADD FLOOR",           command: { "command": "add", "workingDir": "./test-data-elevator" } },
+    { title: "ADD FLOOR",           command: { "command": "add", "workingDir": "./test-data-elevator", "name": "add phone number to users" } },
+    { title: "ADD FLOOR",           command: { "command": "add", "workingDir": "./test-data-elevator" } },
+    { title: "ADD FLOOR",           command: { "command": "add", "workingDir": "./test-data-elevator" } },
+    { title: "MOVE UP TO TOP FLOOR",command: { "command": "up", "workingDir": "./test-data-elevator" } },
+    { title: "MOVE UP TO TOP FLOOR",command: { "command": "up", "workingDir": "./test-data-elevator" } },
+    { title: "MOVE DOWN TO 5",      command: { "command": "down", "workingDir": "./test-data-elevator", "floor": 5 } },
+    { title: "MOVE DOWN TO 2",      command: { "command": "down", "workingDir": "./test-data-elevator", "floor": 2 } },
+    { title: "MOVE DOWN TO 2",      command: { "command": "down", "workingDir": "./test-data-elevator", "floor": 2 } },
+    { title: "MOVE UP TO 2",        command: { "command": "up", "workingDir": "./test-data-elevator", "floor": 2 } },
+    { title: "MOVE UP TO 6",        command: { "command": "up", "workingDir": "./test-data-elevator", "floor": 6 } },
+    { title: "Print status",        command: { "command": "status", "workingDir": "./test-data-elevator" } },
 ]
 
 var _runTest = function(index, commandTest, callback) {
     console.log("*****************************************************************");
     console.log("*** TEST " + index + ": " + commandTest.title);
     console.log("*****************************************************************");
-    elevator.runCommand(commandTest.command, commandTest.options, function(error) {
+    elevator.runCommand(commandTest.command, function(error) {
         if(error) {
             console.log("RESULT: FAILED\r\n");
         } else {

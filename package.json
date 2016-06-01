@@ -7,7 +7,6 @@
     "test": "test.js"
   },
   "dependencies" : {
-    "command-line-args": "*",
     "async": "*"
   },
   "author": "Marco Jonker",
