@@ -71,10 +71,7 @@ var config = {
 Parameters explained:
 
 ```
-#!shell
-
 --<parameter_name> (<alias>, <r=required, o=optional>) <description>     
-
 ```
 ### construct ###
 
@@ -127,7 +124,6 @@ Parameters:
 Examples:
     node ./data-elevator/elevator up
     node ./data-elevator/elevator up -f=5 -c="./config"
-
 ```
 
 ### down ###
@@ -188,7 +184,6 @@ module.exports = {
         return callback(null);
     }
 }
-
 ```
 
 ### FloorWorkerParameters ###
@@ -201,7 +196,6 @@ var FloorWorkerParameters = function(config, logger, floor) {
     this.floor = floor;
     this.logger = logger;
 };
-
 ```
 
 # CUSTOM STUFF #
@@ -253,7 +247,6 @@ var elevator = new Elevator(new ConsoleLogger(false), FileLevelController);
 
 //Run the elevator
 elevator.run(function(error) { });
-
 ```
 
 ### Initializing custom components ###
@@ -337,7 +330,6 @@ var elevator = new Elevator(new ConsoleLogger(false), MyLevelController);
 
 //Run the elevator
 elevator.run(function(error) { });
-
 ```
 
 # RUNNING FROM CODE #
@@ -366,5 +358,4 @@ elevator.runCommand({'command': 'add', 'name': 'update users', 'workingDir': '.\
 elevator.runCommand({'command': 'up', 'floor':3, 'workingDir': '.\data-elevator'}, function(error) {});
 elevator.runCommand({'command': 'down', 'floor':2, 'workingDir': '.\data-elevator'}, , function(error) {});
 elevator.runCommand({'command': 'status', 'workingDir': '.\data-elevator'} , function(error) {});
-
 ```
