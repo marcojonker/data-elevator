@@ -15,71 +15,79 @@ It is flexible because the data elevator allows many simple customizations like:
 * Custom loggers provide the option to use any kind of logger needed. 
 * onInitialize makes it possible to initialize any kind of custom component needed during the migration process
 
-# EXTENSIONS (LIKE MONGODB)#
+# EXTENSIONS #
 
 Some custom level controller implementations are already available in NPM:
 
-* data-elevator-mongodb ([npm](https://bitbucket.org/cacadu/data-elevator-mongodb/overview), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb out of the box
-* data-elevator-mysql (under construction)
-* data-elevator-postgres (under construction)
+* data-elevator-mongodb ([npm](https://www.npmjs.com/package/data-elevator-mongodb), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb out of the box
+* data-elevator-mysql [npm](https://www.npmjs.com/package/data-elevator-mysql), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mysql/overview)) - store elevator migration levels in mysql out of the box
+* data-elevator-postgres ([npm](https://www.npmjs.com/package/data-elevator-postgres), [bitbucket](https://bitbucket.org/cacadu/data-elevator-postgres/overview)) - store elevator migration levels in postgres out of the box)
 
 # INSTALL #
 
-* Add the data-elevator to packages.json
 * Install the module
 ```
-#!shell
-
-npm install
+npm install data-elevator 
 ```
 
 # QUICKSTART #
-*
-Note: It is best to run commands from the root directory of you project because the project handles directories relative to the location the process was started from.*
+
+*Note: It is best to run commands from the root directory of you project because the project handles directories relative to the location the process was started from.*
 
 1 Construct a new data elevator for the project.
 ```
-#!shell
-node ./node-modules/data-elevator/elevator.js construct
+node ./node-modules/data-elevator construct
 ```
 2 Add a new floor.
 ```
-#!shell
-node ./data-elevator/elevator.js add --name="add phone number to users"
+node ./data-elevator/elevator add --name="add phone number to users"
 ```
 3 Enter you migration code in the generated floor file located in './data-elevator/floors/'.
 
-4 Move the elevator up to migrate your data.
+4 Move the elevator up to upgrade your data.
 ```
-#!shell
-node ./data-elevator/elevator.js up
+node ./data-elevator/elevator up
 ```
+5 Move the elevator down to downgrade your data
+```
+node ./data-elevator/elevator down --floor=2
+```
+
+# CONFIGURATION #
+
+* **levelControllerConfig.fileName:** Name of the file to store the current elevator level in
+
+```
+var config = {
+    levelControllerConfig: {
+        fileName: "current_level.json"
+    }
+}
+```
+
 
 # COMMANDS #
 
 Parameters explained:
 
 ```
-#!shell
-
 --<parameter_name> (<alias>, <r=required, o=optional>) <description>     
-
 ```
 ### construct ###
 
 Construct a new data elevator in you project. In principle this command is only performed once per project.
 
 ```
-#!shell
-Command: 'node ./node-modules/data-elevator/elevator.js construct'
+Command: 'node ./node-modules/data-elevator construct'
     
 Parameters:
+    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
     --working-dir= (-w=, o) Location to construct elevator (def=./data-elevator)
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./node-modules/data-elevator/elevator.js construct
-    node ./node-modules/data-elevator/elevator.js construct  -c="./config"
+    node ./node-modules/data-elevator construct
+    node ./node-modules/data-elevator construct  -c="./config"
 ```
 
 ### add ###
@@ -87,8 +95,7 @@ Examples:
 A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
 
 ```
-#!shell
-Command:   'node ./<working-dir>/elevator.js add'
+Command:   'node ./<working-dir>/elevator add'
     
 Parameters:
     --name=        (-n=, o) Custom name of the floor
@@ -97,8 +104,8 @@ Parameters:
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./data-elevator/elevator.js add
-    node ./data-elevator/elevator.js add -n="migrating users" -c="./config"
+    node ./data-elevator/elevator add
+    node ./data-elevator/elevator add -n="migrating users" -c="./config"
 ```
 
 ### up ###
@@ -106,8 +113,7 @@ Examples:
 Elevator will move up and perform the migrations for each floor passed by.
 
 ```
-#!shell
-Command:    'node ./<working-dir>/elevator.js up'
+Command:    'node ./<working-dir>/elevator up'
     
 Parameters:
     --floor=       (-f=, o) Floor to move to, if undefined elevator moves to the top   
@@ -116,9 +122,8 @@ Parameters:
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./data-elevator/elevator.js up
-    node ./data-elevator/elevator.js up -f=5 -c="./config"
-
+    node ./data-elevator/elevator up
+    node ./data-elevator/elevator up -f=5 -c="./config"
 ```
 
 ### down ###
@@ -126,8 +131,7 @@ Examples:
 Elevator will move down and perform the migrations for each floor passed by.
 
 ```
-#!shell
-Command:    'node ./<working-dir>/elevator.js down'
+Command:    'node ./<working-dir>/elevator down'
 
 Parameters:
     --floor=       (-f=, r) Floor to move to
@@ -136,8 +140,8 @@ Parameters:
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./data-elevator/elevator.js down -f=2
-    node ./data-elevator/elevator.js down -f=5 -c="./config"
+    node ./data-elevator/elevator down -f=2
+    node ./data-elevator/elevator down -f=5 -c="./config"
 ```
 
 ### status ###
@@ -145,8 +149,7 @@ Examples:
 Display the last action of the elevator.
 
 ```
-#!shell
-Command:    'node ./<working-dir>/elevator.js status'
+Command:    'node ./<working-dir>/elevator status'
 
 Parameters:
     --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
@@ -154,23 +157,8 @@ Parameters:
     --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./data-elevator/elevator.js status
-    node ./data-elevator/elevator.js status -c="./config"
-```
-
-# CONFIGURATION #
-
-* **levelControllerConfig.fileName:** Name of the file to store the current elevator level in
-
-```
-#!javascript
-
-var config = {
-    levelControllerConfig: {
-        fileName: "current_level.json"
-    }
-}
-
+    node ./data-elevator/elevator status
+    node ./data-elevator/elevator status -c="./config"
 ```
 
 # FLOOR TEMPLATE #
@@ -178,7 +166,6 @@ var config = {
 When a new floor is added the file 'floor-template.js' from the working directory is used as the template. Alterations to floor template are added to new floors. The minimal template contains at least the 'onUp' and 'onDown' function.
 
 ```
-#!javascript
 module.exports = {
     /**
      * Data transformation that need to be performed when migrating the data up
@@ -197,7 +184,6 @@ module.exports = {
         return callback(null);
     }
 }
-
 ```
 
 ### FloorWorkerParameters ###
@@ -205,14 +191,11 @@ module.exports = {
 The FloorWorkerParameters gives access to the current configuration, the logger and the current floor object. 
 
 ```
-#!javascript
-
 var FloorWorkerParameters = function(config, logger, floor) {
     this.config = config;
     this.floor = floor;
     this.logger = logger;
 };
-
 ```
 
 # CUSTOM STUFF #
@@ -220,8 +203,6 @@ var FloorWorkerParameters = function(config, logger, floor) {
 All the custom stuff can be implemented in '<working-dir>/elevator.js'.
 
 ```
-#!javascript
-
 /**
  * Elevator
  * Data elevator
@@ -266,7 +247,6 @@ var elevator = new Elevator(new ConsoleLogger(false), FileLevelController);
 
 //Run the elevator
 elevator.run(function(error) { });
-
 ```
 
 ### Initializing custom components ###
@@ -285,8 +265,6 @@ A custom level controller needs to be derived from BaseLevelController and needs
 
 
 ```
-#!javascript
-
 /**
  * MyLevelController
 **/
@@ -334,8 +312,6 @@ After creating the custom level controller it needs to be plugin in to the eleva
 
 
 ```
-#!javascript
-
 var util = require('util');
 var ElevatorBase = require('data-elevator/lib/elevator-engine/elevator-base');
 var ConsoleLogger = require('data-elevator/lib/logger/console-logger');
@@ -354,7 +330,6 @@ var elevator = new Elevator(new ConsoleLogger(false), MyLevelController);
 
 //Run the elevator
 elevator.run(function(error) { });
-
 ```
 
 # RUNNING FROM CODE #
@@ -362,8 +337,6 @@ elevator.run(function(error) { });
 The elevator can also run from code.
 
 ```
-#!javascript
-
 var util = require('util');
 var ElevatorBase = require('data-elevator/lib/elevator-engine/elevator-base.js');
 var ConsoleLogger = require('data-elevator/lib/logger/console-logger');
@@ -381,9 +354,8 @@ util.inherits(Elevator, ElevatorBase);
 var elevator = new Elevator(new ConsoleLogger(false), FileLevelController);
 
 elevator.runCommand({'command': 'help'}, function(error) {});
-elevator.runCommand({'command': 'help', 'name': 'update users'}, function(error) {});
-elevator.runCommand({'command': 'up', 'floor':3}, function(error) {});
-elevator.runCommand({'command': 'down', 'floor':2}, , function(error) {});
-elevator.runCommand({'command': 'status'} , function(error) {});
-
+elevator.runCommand({'command': 'add', 'name': 'update users', 'workingDir': '.\data-elevator'}, function(error) {});
+elevator.runCommand({'command': 'up', 'floor':3, 'workingDir': '.\data-elevator'}, function(error) {});
+elevator.runCommand({'command': 'down', 'floor':2, 'workingDir': '.\data-elevator'}, , function(error) {});
+elevator.runCommand({'command': 'status', 'workingDir': '.\data-elevator'} , function(error) {});
 ```
