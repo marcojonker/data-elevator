@@ -19,9 +19,9 @@ It is flexible because the data elevator allows many simple customizations like:
 
 Some custom level controller implementations are already available in NPM:
 
-* data-elevator-mongodb ([npm](https://bitbucket.org/cacadu/data-elevator/overview), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb out of the box
-* data-elevator-mysql (under construction)
-* data-elevator-postgres (under construction)
+* data-elevator-mongodb ([npm](https://www.npmjs.com/package/data-elevator-mongodb), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb out of the box
+* data-elevator-mysql [npm](https://www.npmjs.com/package/data-elevator-mysql), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mysql/overview)) - store elevator migration levels in mysql out of the box
+* data-elevator-postgres ([npm](https://www.npmjs.com/package/data-elevator-postgres), [bitbucket](https://bitbucket.org/cacadu/data-elevator-postgres/overview)) - store elevator migration levels in postgres out of the box)
 
 # INSTALL #
 
