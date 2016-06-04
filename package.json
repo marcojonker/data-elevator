@@ -1,9 +1,25 @@
 {
   "name": "data-elevator",
-  "version": "0.0.1",
-  "description": "Flexible utility for migration of data sources",
+  "version": "1.0.0-betal.0",
+  "description": "Flexible utility for managing migrations of data sources",
   "main": "elevator.js",
-  "keywords": ["migrate", "data", "datasource", "utility", "tootl", "migrations"],
+  "keywords": [
+    "migrate",
+    "migrations",
+    "migrate data",
+    "data migration",
+    "donwgrade",
+    "upgrade",
+    "mysql",
+    "postgres",
+    "mongodb",
+    "data-elevator",
+    "elevate data",
+    "data",
+    "datasource",
+    "database",
+    "utility"
+  ],
   "bugs": "https://bitbucket.org/cacadu/data-elevator/issues/",
   "license": "MIT",
   "scripts": {
