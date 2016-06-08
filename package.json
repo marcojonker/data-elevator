@@ -32,6 +32,7 @@
     "package.json",
     "README.md",
     "LICENSE",
+    "CHANGELOG",
     "elevator.js",
     "test.js",
     "lib",
