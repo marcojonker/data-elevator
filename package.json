@@ -34,7 +34,8 @@
     "LICENSE",
     "elevator.js",
     "test.js",
-    "lib"
+    "lib",
+    "bin"
   ],
   "repository" : { 
     "type" : "git",
