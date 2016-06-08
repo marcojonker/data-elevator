@@ -11,7 +11,7 @@ Parameter description:
 ----------------------------------------------------------------------------------
 construct: Construct a new data elevator for the current project
 
-    Command: 'node ./mode-modules/data-elevator/elevator.js construct'
+    Command: 'node ./mode-modules/data-elevator/elevator construct'
     
     Parameters:
         --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
@@ -19,13 +19,13 @@ construct: Construct a new data elevator for the current project
         --verbose      (-v,  o) Verbose mode
 
     Examples:        
-        node ./data-elevator/elevator.js construct
-        node ./data-elevator/elevator.js construct  -c="./my-data-elevator"
+        node ./data-elevator/elevator construct
+        node ./data-elevator/elevator construct  -c="./my-data-elevator"
         
 ----------------------------------------------------------------------------------     
 add: Create a new floor (a floor is a layer of migrations)
 
-    Command:   'node ./<working-dir>/elevator.js add'
+    Command:   'node ./<working-dir>/elevator add'
     
     Parameters:
         --name=        (-n=, o) Custom name of the floor
@@ -34,13 +34,13 @@ add: Create a new floor (a floor is a layer of migrations)
         --verbose      (-v,  o) Verbose mode
 
     Examples:
-        node ./data-elevator/elevator.js add
-        node ./data-elevator/elevator.js add -n="migrating users" -c="./config"
+        node ./data-elevator/elevator add
+        node ./data-elevator/elevator add -n="migrating users" -c="./config"
         
 ----------------------------------------------------------------------------------
 up: Elevate data up to a specific level
 
-    Command:    'node ./<working-dir>/elevator.js up'
+    Command:    'node ./<working-dir>/elevator up'
     
     Parameters:
         --floor=       (-f,= o) Floor to move to, if undefined elevator moves to the top   
@@ -49,13 +49,13 @@ up: Elevate data up to a specific level
         --verbose      (-v,  o) Verbose mode
         
     Examples:
-        node ./data-elevator/elevator.js up
-        node ./data-elevator/elevator.js up -f=5 -c="./config"
+        node ./data-elevator/elevator up
+        node ./data-elevator/elevator up -f=5 -c="./config"
         
 ----------------------------------------------------------------------------------
 down: De-elevate data to a specific level
 
-    Command:    'node ./<working-dir>/elevator.js down'
+    Command:    'node ./<working-dir>/elevator down'
 
     Parameters:
         --floor=       (-f=, r) Floor to move to
@@ -64,13 +64,13 @@ down: De-elevate data to a specific level
         --verbose      (-v,  o) Verbose mode
 
     Examples:
-        node ./data-elevator/elevator.js down -f=2
-        node ./data-elevator/elevator.js down -f=5 -c="./config"
+        node ./data-elevator/elevator down -f=2
+        node ./data-elevator/elevator down -f=5 -c="./config"
         
 ----------------------------------------------------------------------------------
 status: Display current status of the elevator
 
-    Command:    'node ./<working-dir>/elevator.js status'
+    Command:    'node ./<working-dir>/elevator status'
 
     Parameters:
         --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
@@ -78,5 +78,19 @@ status: Display current status of the elevator
         --verbose      (-v,  o) Verbose mode
 
     Examples:
-        node ./data-elevator/elevator.js status
-        node ./data-elevator/elevator.js status -c="./config"
+        node ./data-elevator/elevator status
+        node ./data-elevator/elevator status -c="./config"
+
+----------------------------------------------------------------------------------
+status: Display a list of all floors
+
+    Command:    'node ./<working-dir>/elevator list'
+
+    Parameters:
+        --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
+        --working-dir= (-w=, o) Location to construct elevator (./data-elevator)
+        --verbose      (-v,  o) Verbose mode
+
+    Examples:
+        node ./data-elevator/elevator list
+        node ./data-elevator/elevator list -c="./config"

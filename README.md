@@ -19,13 +19,14 @@ It is flexible because the data elevator allows many simple customizations like:
 
 Some custom level controller implementations are already available in NPM:
 
-* data-elevator-mongodb ([npm](https://www.npmjs.com/package/data-elevator-mongodb), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb out of the box
-* data-elevator-mysql ([npm](https://www.npmjs.com/package/data-elevator-mysql), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mysql/overview)) - store elevator migration levels in mysql out of the box
-* data-elevator-postgres ([npm](https://www.npmjs.com/package/data-elevator-postgres), [bitbucket](https://bitbucket.org/cacadu/data-elevator-postgres/overview)) - store elevator migration levels in postgres out of the box)
+* data-elevator-elasticsearch ([npm](https://www.npmjs.com/package/data-elevator-elasticsearch), [bitbucket](https://bitbucket.org/cacadu/data-elevator-elasticsearch/overview)) - store elevator migration levels in elasticsearch
+* data-elevator-mongodb ([npm](https://www.npmjs.com/package/data-elevator-mongodb), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb
+* data-elevator-mysql [npm](https://www.npmjs.com/package/data-elevator-mysql), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mysql/overview)) - store elevator migration levels in mysql
+* data-elevator-postgres ([npm](https://www.npmjs.com/package/data-elevator-postgres), [bitbucket](https://bitbucket.org/cacadu/data-elevator-postgres/overview)) - store elevator migration levels in postgres
+* data-elevator-sqlite3 ([npm](https://www.npmjs.com/package/data-elevator-sqlite3), [bitbucket](https://bitbucket.org/cacadu/data-elevator-sqlite3/overview)) - store elevator migration levels in sqlite3
 
 # INSTALL #
 
-* Install the module
 ```
 npm install data-elevator 
 ```
@@ -160,6 +161,24 @@ Examples:
     node ./data-elevator/elevator status
     node ./data-elevator/elevator status -c="./config"
 ```
+
+### status ###
+
+Display a list of all floors.
+
+```
+Command:    'node ./<working-dir>/elevator list'
+
+Parameters:
+    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
+    --working-dir= (-w=, o) Data elevator (def=./data-elevator)
+    --verbose      (-v,  o) Verbose mode
+
+Examples:
+    node ./data-elevator/elevator list
+    node ./data-elevator/elevator list -c="./config"
+```
+
 
 # FLOOR TEMPLATE #
 
