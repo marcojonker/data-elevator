@@ -82,6 +82,46 @@
 			"outDir": null
 		},		
 		{
+			"name": "List",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/elevator.js",
+			"stopOnEntry": false,
+			"args": ["list"],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
+			"sourceMaps": false,
+			"outDir": null
+		},		
+		{
+			"name": "Status",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/elevator.js",
+			"stopOnEntry": false,
+			"args": ["statis"],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"externalConsole": false,
+			"sourceMaps": false,
+			"outDir": null
+		},		
+		{
 			"name": "Up",
 			"type": "node",
 			"request": "launch",
