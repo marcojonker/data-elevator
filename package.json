@@ -42,6 +42,7 @@
     "type" : "git",
     "url" : "git@bitbucket.org:cacadu/data-elevator.git"
   },
+  "homepage" : "https://bitbucket.org/cacadu/data-elevator",
   "dependencies" : {
     "async": "^1.x"
   },
