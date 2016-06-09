@@ -1,6 +1,6 @@
 {
   "name": "data-elevator",
-  "version": "1.1.0-beta.0",
+  "version": "1.1.0",
   "description": "Flexible utility for managing migrations of data sources",
   "main": "elevator.js",
   "bin" : { 
