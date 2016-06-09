@@ -82,7 +82,7 @@ status: Display current status of the elevator
         node ./data-elevator/elevator status -c="./config"
 
 ----------------------------------------------------------------------------------
-status: Display a list of all floors
+list: Display a list of all floors
 
     Command:    'node ./<working-dir>/elevator list'
 
