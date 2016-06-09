@@ -1,6 +1,6 @@
 {
   "name": "data-elevator",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Flexible utility for managing migrations of data sources",
   "main": "elevator.js",
   "bin" : { 
@@ -42,6 +42,7 @@
     "type" : "git",
     "url" : "git@bitbucket.org:cacadu/data-elevator.git"
   },
+  "homepage" : "https://bitbucket.org/cacadu/data-elevator",
   "dependencies" : {
     "async": "^1.x"
   },
