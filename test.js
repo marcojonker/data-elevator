@@ -27,10 +27,10 @@ var commandTests = [
     { title: "MOVE UP TO TOP FLOOR",command: { "command": "up", "workingDir": "./test-data-elevator" } },
     { title: "MOVE DOWN TO 5",      command: { "command": "down", "workingDir": "./test-data-elevator", "floor": 5 } },
     { title: "MOVE DOWN TO 2",      command: { "command": "down", "workingDir": "./test-data-elevator", "floor": 2 } },
-    { title: "MOVE DOWN TO 2",      command: { "command": "down", "workingDir": "./test-data-elevator", "floor": 2 } },
     { title: "MOVE UP TO 2",        command: { "command": "up", "workingDir": "./test-data-elevator", "floor": 2 } },
     { title: "MOVE UP TO 6",        command: { "command": "up", "workingDir": "./test-data-elevator", "floor": 6 } },
     { title: "Print status",        command: { "command": "status", "workingDir": "./test-data-elevator" } },
+    { title: "Print list",          command: { "command": "list", "workingDir": "./test-data-elevator" } },
 ]
 
 var _runTest = function(index, commandTest, callback) {
