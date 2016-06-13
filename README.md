@@ -62,31 +62,20 @@ Parameters explained:
 --<parameter_name> (<alias>, <r=required, o=optional>) <description>     
 ```
 
-Standard parameters:
-
-```
-The parameters can be applied to any command
-
-Parameters:
-    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
-    --working-dir= (-w=, o) Data elevator (def=./data-elevator)
-    --verbose      (-v,  o) Verbose mode
-```
-
-### construct ###
+## CONSTRUCT ##
 
 Construct a new data elevator in you project. In principle this command is only performed once per project.
 
 ```
-Command: 'node ./node-modules/data-elevator construct'
+node ./node-modules/data-elevator construct
 ```
 
-### add ###
+## ADD ##
 
 A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
 
 ```
-Command:   'node ./<working-dir>/elevator add'
+node ./<working-dir>/elevator add --name=<name>
     
 Parameters:
     --name=        (-n=, o) Custom name of the floor
@@ -95,12 +84,12 @@ Examples:
     node ./data-elevator/elevator add -n="migrating users"
 ```
 
-### move ###
+## MOVE ##
 
 Elevator will move and perform the migrations for each floor passed by. Use 'ground' to move to ground floor and 'top' to move to the top floor.
 
 ```
-Command:    'node ./<working-dir>/elevator move <floor>'
+node ./<working-dir>/elevator move <floor>
     
 Examples:
     node ./data-elevator/elevator move top
@@ -108,26 +97,31 @@ Examples:
     node ./data-elevator/elevator move ground
 ```
 
-### status ###
+## STATUS ##
 
 Display the last action of the elevator.
 
 ```
-Command:    'node ./<working-dir>/elevator status'
-
-Examples:
-    node ./data-elevator/elevator status
+node ./<working-dir>/elevator status
 ```
 
-### list ###
+## LIST ##
 
 Display a list of all floors.
 
 ```
-Command:    'node ./<working-dir>/elevator list'
+node ./<working-dir>/elevator list
+```
 
-Examples:
-    node ./data-elevator/elevator list
+## ADDITIONAL PARAMETERS parameters ##
+
+The parameters can be applied to any command
+
+```
+Parameters:
+    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
+    --working-dir= (-w=, o) Data elevator (def=./data-elevator)
+    --verbose      (-v,  o) Verbose mode
 ```
 
 # FLOOR TEMPLATE #
