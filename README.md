@@ -113,7 +113,7 @@ Display a list of all floors.
 node ./<working-dir>/elevator list
 ```
 
-## ADDITIONAL PARAMETERS parameters ##
+## ADDITIONAL PARAMETERS ##
 
 The parameters can be applied to any command
 
