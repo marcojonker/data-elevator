@@ -1,57 +1,28 @@
 # DATA ELEVATOR #
 
-The data elevator is an easy to use and very flexible utility for migrating data sources. The whole project and terminology is based on a real elevator. Every floor is a migration and the current level the current active migration.
-
-### Why is it easy to use? ###
-
-It is easy to used because the default out of the box configuration will be up and running migrations within minutes.
-
-### Why is it very flexible? ###
-
-It is flexible because the data elevator allows many simple customizations like:
-
-* Floor templates gives total control over the generated floors.
-* Custom level controllers provide an easy way to store current migration level in any kind of data source like MongoDb, Postgres or a custom webservice.
-* Custom loggers provide the option to use any kind of logger needed. 
-* onInitialize makes it possible to initialize any kind of custom component needed during the migration process
-
-# EXTENSIONS #
-
-Some custom level controller implementations are already available in NPM:
-
-* data-elevator-elasticsearch ([npm](https://www.npmjs.com/package/data-elevator-elasticsearch), [bitbucket](https://bitbucket.org/cacadu/data-elevator-elasticsearch/overview)) - store elevator migration levels in elasticsearch
-* data-elevator-mongodb ([npm](https://www.npmjs.com/package/data-elevator-mongodb), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb
-* data-elevator-mysql ([npm](https://www.npmjs.com/package/data-elevator-mysql), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mysql/overview)) - store elevator migration levels in mysql
-* data-elevator-postgres ([npm](https://www.npmjs.com/package/data-elevator-postgres), [bitbucket](https://bitbucket.org/cacadu/data-elevator-postgres/overview)) - store elevator migration levels in postgres
-* data-elevator-sqlite3 ([npm](https://www.npmjs.com/package/data-elevator-sqlite3), [bitbucket](https://bitbucket.org/cacadu/data-elevator-sqlite3/overview)) - store elevator migration levels in sqlite3
-
-# INSTALL #
-
-```
-npm install data-elevator 
-```
+The data elevator is an easy to use and very flexible utility for migrating data sources. Every floor is a migration and the current level the current active migration.
 
 # QUICKSTART #
 
-*Note: It is best to run commands from the root directory of you project because the project handles directories relative to the location the process was started from.*
-
-1 Construct a new data elevator for the project.
+1 Install
+```
+npm install data-elevator
+```
+2 Construct a new data elevator for the project.
 ```
 node ./node-modules/data-elevator construct
 ```
-2 Add a new floor.
+3 Add a new migration.
 ```
 node ./data-elevator/elevator add --name="add phone number to users"
 ```
-3 Enter you migration code in the generated floor file located in './data-elevator/floors/'.
+4 Enter you migration code in the generated floor file located in './data-elevator/floors/'.
 
-4 Move the elevator up to upgrade your data.
+5 Move the elevator to migrate data.
 ```
-node ./data-elevator/elevator up
-```
-5 Move the elevator down to downgrade your data
-```
-node ./data-elevator/elevator down --floor=2
+node ./data-elevator/elevator move top
+node ./data-elevator/elevator move ground
+node ./data-elevator/elevator move 2
 ```
 
 # CONFIGURATION #
@@ -66,6 +37,22 @@ var config = {
 }
 ```
 
+# FEATURES #
+
+* **Floor templates**: Base template for all migration floors.
+* **Custom level controllers**: Easily implement custom storage of the current migration level in any kind of data source like MongoDb, Postgres or a custom webservice.
+* **Custom loggers**: Implement your own logger. 
+* **onInitialize**:  Initialize any kind of custom component needed during the migrations process on beforehand.
+
+# EXTENSIONS #
+
+Some custom level controller implementations are already available in NPM:
+
+* data-elevator-elasticsearch ([npm](https://www.npmjs.com/package/data-elevator-elasticsearch), [bitbucket](https://bitbucket.org/cacadu/data-elevator-elasticsearch/overview)) - store elevator migration levels in elasticsearch
+* data-elevator-mongodb ([npm](https://www.npmjs.com/package/data-elevator-mongodb), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mongodb/overview)) - store elevator migration levels in mongodb
+* data-elevator-mysql ([npm](https://www.npmjs.com/package/data-elevator-mysql), [bitbucket](https://bitbucket.org/cacadu/data-elevator-mysql/overview)) - store elevator migration levels in mysql
+* data-elevator-postgres ([npm](https://www.npmjs.com/package/data-elevator-postgres), [bitbucket](https://bitbucket.org/cacadu/data-elevator-postgres/overview)) - store elevator migration levels in postgres
+* data-elevator-sqlite3 ([npm](https://www.npmjs.com/package/data-elevator-sqlite3), [bitbucket](https://bitbucket.org/cacadu/data-elevator-sqlite3/overview)) - store elevator migration levels in sqlite3
 
 # COMMANDS #
 
@@ -74,109 +61,67 @@ Parameters explained:
 ```
 --<parameter_name> (<alias>, <r=required, o=optional>) <description>     
 ```
-### construct ###
+
+### CONSTRUCT ###
 
 Construct a new data elevator in you project. In principle this command is only performed once per project.
 
 ```
-Command: 'node ./node-modules/data-elevator construct'
-    
-Parameters:
-    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
-    --working-dir= (-w=, o) Location to construct elevator (def=./data-elevator)
-    --verbose      (-v,  o) Verbose mode
-
-Examples:
-    node ./node-modules/data-elevator construct
-    node ./node-modules/data-elevator construct  -c="./config"
+node ./node-modules/data-elevator construct
 ```
 
-### add ###
+### ADD ###
 
 A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
 
 ```
-Command:   'node ./<working-dir>/elevator add'
+node ./<working-dir>/elevator add --name=<name>
     
 Parameters:
     --name=        (-n=, o) Custom name of the floor
-    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
-    --working-dir= (-w=, o) Data elevator (def=./data-elevator)
-    --verbose      (-v,  o) Verbose mode
 
 Examples:
-    node ./data-elevator/elevator add
-    node ./data-elevator/elevator add -n="migrating users" -c="./config"
+    node ./data-elevator/elevator add -n="migrating users"
 ```
 
-### up ###
+### MOVE ###
 
-Elevator will move up and perform the migrations for each floor passed by.
+Elevator will move and perform the migrations for each floor passed by. Use 'ground' to move to ground floor and 'top' to move to the top floor.
 
 ```
-Command:    'node ./<working-dir>/elevator up'
+node ./<working-dir>/elevator move <floor>
     
-Parameters:
-    --floor=       (-f=, o) Floor to move to, if undefined elevator moves to the top   
-    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
-    --working-dir= (-w=, o) Data elevator (def=./data-elevator)
-    --verbose      (-v,  o) Verbose mode
-
 Examples:
-    node ./data-elevator/elevator up
-    node ./data-elevator/elevator up -f=5 -c="./config"
+    node ./data-elevator/elevator move top
+    node ./data-elevator/elevator move 5
+    node ./data-elevator/elevator move ground
 ```
 
-### down ###
-
-Elevator will move down and perform the migrations for each floor passed by.
-
-```
-Command:    'node ./<working-dir>/elevator down'
-
-Parameters:
-    --floor=       (-f=, r) Floor to move to
-    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
-    --working-dir= (-w=, o) Data elevator (def=./data-elevator)
-    --verbose      (-v,  o) Verbose mode
-
-Examples:
-    node ./data-elevator/elevator down -f=2
-    node ./data-elevator/elevator down -f=5 -c="./config"
-```
-
-### status ###
+### STATUS ###
 
 Display the last action of the elevator.
 
 ```
-Command:    'node ./<working-dir>/elevator status'
-
-Parameters:
-    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
-    --working-dir= (-w=, o) Data elevator (def=./data-elevator)
-    --verbose      (-v,  o) Verbose mode
-
-Examples:
-    node ./data-elevator/elevator status
-    node ./data-elevator/elevator status -c="./config"
+node ./<working-dir>/elevator status
 ```
 
-### list ###
+### LIST ###
 
 Display a list of all floors.
 
 ```
-Command:    'node ./<working-dir>/elevator list'
+node ./<working-dir>/elevator list
+```
 
+### ADDITIONAL PARAMETERS ###
+
+The parameters can be applied to any command
+
+```
 Parameters:
     --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
     --working-dir= (-w=, o) Data elevator (def=./data-elevator)
     --verbose      (-v,  o) Verbose mode
-
-Examples:
-    node ./data-elevator/elevator list
-    node ./data-elevator/elevator list -c="./config"
 ```
 
 # FLOOR TEMPLATE #
@@ -373,7 +318,6 @@ var elevator = new Elevator(new ConsoleLogger(false), FileLevelController);
 
 elevator.runCommand({'command': 'help'}, function(error) {});
 elevator.runCommand({'command': 'add', 'name': 'update users', 'workingDir': '.\data-elevator'}, function(error) {});
-elevator.runCommand({'command': 'up', 'floor':3, 'workingDir': '.\data-elevator'}, function(error) {});
-elevator.runCommand({'command': 'down', 'floor':2, 'workingDir': '.\data-elevator'}, , function(error) {});
+elevator.runCommand({'command': 'move', 'floor':2, 'workingDir': '.\data-elevator'}, , function(error) {});
 elevator.runCommand({'command': 'status', 'workingDir': '.\data-elevator'} , function(error) {});
 ```
