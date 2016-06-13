@@ -62,7 +62,7 @@ Parameters explained:
 --<parameter_name> (<alias>, <r=required, o=optional>) <description>     
 ```
 
-## CONSTRUCT ##
+### CONSTRUCT ###
 
 Construct a new data elevator in you project. In principle this command is only performed once per project.
 
@@ -70,7 +70,7 @@ Construct a new data elevator in you project. In principle this command is only 
 node ./node-modules/data-elevator construct
 ```
 
-## ADD ##
+### ADD ###
 
 A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
 
@@ -84,7 +84,7 @@ Examples:
     node ./data-elevator/elevator add -n="migrating users"
 ```
 
-## MOVE ##
+### MOVE ###
 
 Elevator will move and perform the migrations for each floor passed by. Use 'ground' to move to ground floor and 'top' to move to the top floor.
 
@@ -97,7 +97,7 @@ Examples:
     node ./data-elevator/elevator move ground
 ```
 
-## STATUS ##
+### STATUS ###
 
 Display the last action of the elevator.
 
@@ -105,7 +105,7 @@ Display the last action of the elevator.
 node ./<working-dir>/elevator status
 ```
 
-## LIST ##
+### LIST ###
 
 Display a list of all floors.
 
@@ -113,7 +113,7 @@ Display a list of all floors.
 node ./<working-dir>/elevator list
 ```
 
-## ADDITIONAL PARAMETERS ##
+### ADDITIONAL PARAMETERS ###
 
 The parameters can be applied to any command
 
