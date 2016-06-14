@@ -4,21 +4,23 @@ The data elevator is an easy to use and very flexible utility for migrating data
 
 # QUICKSTART #
 
-1 Install
+**STEP 1:** Install
 ```
 npm install data-elevator
 ```
-2 Construct a new data elevator for the project.
+**STEP 2:** Construct a new data elevator for the project.
 ```
 node ./node-modules/data-elevator construct
 ```
-3 Add a new migration.
+**STEP 3:** Add a new migration.
 ```
 node ./data-elevator/elevator add "add phone number to users"
 ```
-4 Enter you migration code in the generated floor file located in './data-elevator/floors/'.
-
-5 Move the elevator to migrate data.
+**STEP 4:** Enter you migration code in the generated floor file.
+```
+see: ./data-elevator/floors/
+```
+**STEP 5:** Move the elevator to migrate data.
 ```
 node ./data-elevator/elevator move top
 node ./data-elevator/elevator move ground
