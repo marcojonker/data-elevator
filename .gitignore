@@ -2,4 +2,5 @@
 node_modules/
 logs/*.log
 data-elevator/
-test-data-elevator/
+_data-elevator-test/
+_data-elevator-test-config.js

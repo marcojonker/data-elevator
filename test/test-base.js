@@ -8,18 +8,23 @@
 
 var async = require('async');
 var path = require('path');
+var FileUtils = require('../lib/utils/file-utils.js').FileUtils;
 var ElevatorBase = require('../lib/elevator-engine/elevator-base.js');
 var ConsoleLogger = require('../lib/logger/console-logger.js');
-var FileLevelController = require('../lib/level-controllers/file-level-controller.js');
 
 /**
  * Constructor
  * @param config
  * @param moduleDir
  */
-var TestBase = function(config, moduleDir) {
-    this.config = config;
-    this.elevator = new ElevatorBase(new ConsoleLogger(true), FileLevelController, moduleDir);
+var TestBase = function(moduleDir, LevelController) {
+    var configPath = path.join(process.cwd(), '_data-elevator-test-config.js');
+    if(FileUtils.fileExists(configPath)) {
+        this.config = require(path.join(process.cwd(), '_data-elevator-test-config.js'));
+        this.elevator = new ElevatorBase(new ConsoleLogger(true), LevelController, moduleDir);
+    } else {
+        throw new Error('Test configuration file not found at path: ' + configPath);
+    }
 };
 
 /**
@@ -48,30 +53,30 @@ TestBase.prototype.runTest = function(index, commandTest, callback) {
 TestBase.prototype.runDefaultCommands = function() {
     var commands = [
         { title: "DISPLAY HELP",        command: { command: 'help' } }, 
-        { title: "CONSTRUCT ELEVATOR",  command: { command: "construct", workingDir: "./test-data-elevator" } },
-        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./test-data-elevator", verbose:true} },
-        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./test-data-elevator", name: "second floor" } },
-        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./test-data-elevator" } },
-        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./test-data-elevator" } },
-        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./test-data-elevator", name: "update invoice data"} },
-        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./test-data-elevator" } },
-        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./test-data-elevator", name: "add phone number to users" } },
-        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./test-data-elevator" } },
-        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./test-data-elevator" } },
-        { title: "MOVE TO TOP",         command: { command: "move", workingDir: "./test-data-elevator", "floor": "top" } },
-        { title: "MOVE TO GROUND",      command: { command: "move", workingDir: "./test-data-elevator", "floor": "ground" } },
-        { title: "MOVE DOWN TO 5",      command: { command: "move", workingDir: "./test-data-elevator", "floor": 5 } },
-        { title: "MOVE DOWN TO 2",      command: { command: "move", workingDir: "./test-data-elevator", "floor": 2 } },
-        { title: "MOVE UP TO 2",        command: { command: "move", workingDir: "./test-data-elevator", "floor": 2 } },
-        { title: "MOVE UP TO 6",        command: { command: "move", workingDir: "./test-data-elevator", "floor": 6 } },
-        { title: "PRINT STATUS",        command: { command: "status", workingDir: "./test-data-elevator" } },
-        { title: "PRINT LIST",          command: { command: "list", workingDir: "./test-data-elevator" } },
-        { title: "MOVE TO GROUND",      command: { command: "move", workingDir: "./test-data-elevator", "floor": "ground" } },
-        { title: "PRINT STATUS",        command: { command: "status", workingDir: "./test-data-elevator" } },
-        { title: "PRINT LIST",          command: { command: "list", workingDir: "./test-data-elevator" } },
-        { title: "MOVE TO TOP",         command: { command: "move", workingDir: "./test-data-elevator", "floor": "top" } },
-        { title: "PRINT STATUS",        command: { command: "status", workingDir: "./test-data-elevator" } },
-        { title: "PRINT LIST",          command: { command: "list", workingDir: "./test-data-elevator" } },
+        { title: "CONSTRUCT ELEVATOR",  command: { command: "construct", workingDir: "./_data-elevator-test" } },
+        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test", verbose:true} },
+        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test", name: "second floor" } },
+        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test" } },
+        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test" } },
+        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test", name: "update invoice data"} },
+        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test" } },
+        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test", name: "add phone number to users" } },
+        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test" } },
+        { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test" } },
+        { title: "MOVE TO TOP",         command: { command: "move", workingDir: "./_data-elevator-test", "floor": "top" } },
+        { title: "MOVE TO GROUND",      command: { command: "move", workingDir: "./_data-elevator-test", "floor": "ground" } },
+        { title: "MOVE DOWN TO 5",      command: { command: "move", workingDir: "./_data-elevator-test", "floor": 5 } },
+        { title: "MOVE DOWN TO 2",      command: { command: "move", workingDir: "./_data-elevator-test", "floor": 2 } },
+        { title: "MOVE UP TO 2",        command: { command: "move", workingDir: "./_data-elevator-test", "floor": 2 } },
+        { title: "MOVE UP TO 6",        command: { command: "move", workingDir: "./_data-elevator-test", "floor": 6 } },
+        { title: "PRINT STATUS",        command: { command: "status", workingDir: "./_data-elevator-test" } },
+        { title: "PRINT LIST",          command: { command: "list", workingDir: "./_data-elevator-test" } },
+        { title: "MOVE TO GROUND",      command: { command: "move", workingDir: "./_data-elevator-test", "floor": "ground" } },
+        { title: "PRINT STATUS",        command: { command: "status", workingDir: "./_data-elevator-test" } },
+        { title: "PRINT LIST",          command: { command: "list", workingDir: "./_data-elevator-test" } },
+        { title: "MOVE TO TOP",         command: { command: "move", workingDir: "./_data-elevator-test", "floor": "top" } },
+        { title: "PRINT STATUS",        command: { command: "status", workingDir: "./_data-elevator-test" } },
+        { title: "PRINT LIST",          command: { command: "list", workingDir: "./_data-elevator-test" } },
     ];
 
     this.run(commands);   
@@ -91,7 +96,7 @@ TestBase.prototype.run = function(commands) {
         self.runTest(index, command, callback);
         index++;
     }, function(error) {
-        console.log("Remove the folder './test-data-elevator' to run the test again.");
+        console.log("Remove the folder './_data-elevator-test' to run the test again.");
     });    
 };
 

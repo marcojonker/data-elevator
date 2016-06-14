@@ -17,6 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - add command 'elevator add -n="test migration"' => 'elevator add "test migration"'
 - documentation
 - testing code
+- direction property removed from level class
 
 ### Fixes
 - callback issue in printing 

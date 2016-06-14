@@ -5,8 +5,8 @@
 'use strict'
 
 var TestBase = require('./test-base');
-var config = require('./test-config');
 var path = require('path');
+var FileLevelController = require('../lib/level-controllers/file-level-controller.js');
 
-var test = new TestBase(config, path.normalize(path.join(__dirname, '../')));
+var test = new TestBase(path.normalize(path.join(__dirname, '../')), FileLevelController);
 test.runDefaultCommands();
