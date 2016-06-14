@@ -9,88 +9,45 @@ Parameter description:
     --<parameter_name> (<alias>, <r=required, o=optional>) <description> (default)    
 
 ----------------------------------------------------------------------------------
-construct: Construct a new data elevator for the current project
+DEFAULT PARAMETERS: these parameters can be used with any command
 
-    Command: 'node ./mode-modules/data-elevator/elevator construct'
-    
     Parameters:
         --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
         --working-dir= (-w=, o) Location to construct elevator (./data-elevator)
         --verbose      (-v,  o) Verbose mode
 
-    Examples:        
-        node ./data-elevator/elevator construct
-        node ./data-elevator/elevator construct  -c="./my-data-elevator"
+
+----------------------------------------------------------------------------------
+CONSTRUCT: Construct a new data elevator for the current project
+
+    node ./mode-modules/data-elevator/elevator construct
         
 ----------------------------------------------------------------------------------     
-add: Create a new floor (a floor is a layer of migrations)
+ADD: Create a new floor (a floor is a layer of migrations)
 
-    Command:   'node ./<working-dir>/elevator add'
+    node ./<working-dir>/elevator add <name>
     
-    Parameters:
-        --name=        (-n=, o) Custom name of the floor
-        --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
-        --working-dir= (-w=, o) Location to construct elevator (./data-elevator)
-        --verbose      (-v,  o) Verbose mode
-
     Examples:
         node ./data-elevator/elevator add
-        node ./data-elevator/elevator add -n="migrating users" -c="./config"
+        node ./data-elevator/elevator add "migrating users"
         
 ----------------------------------------------------------------------------------
-up: Elevate data up to a specific level
+MOVE: Move the elevator to a specific floor, used 'ground' for ground floor and
+      'top' for top floor
 
-    Command:    'node ./<working-dir>/elevator up'
-    
-    Parameters:
-        --floor=       (-f,= o) Floor to move to, if undefined elevator moves to the top   
-        --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
-        --working-dir= (-w=, o) Location to construct elevator (./data-elevator)
-        --verbose      (-v,  o) Verbose mode
+    node ./<working-dir>/elevator move <floor>
         
     Examples:
-        node ./data-elevator/elevator up
-        node ./data-elevator/elevator up -f=5 -c="./config"
+        node ./data-elevator/elevator move top
+        node ./data-elevator/elevator move ground
+        node ./data-elevator/elevator move 5
         
 ----------------------------------------------------------------------------------
-down: De-elevate data to a specific level
+STATUS: Display current status of the elevator
 
-    Command:    'node ./<working-dir>/elevator down'
-
-    Parameters:
-        --floor=       (-f=, r) Floor to move to
-        --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
-        --working-dir= (-w=, o) Location to construct elevator (./data-elevator)
-        --verbose      (-v,  o) Verbose mode
-
-    Examples:
-        node ./data-elevator/elevator down -f=2
-        node ./data-elevator/elevator down -f=5 -c="./config"
-        
-----------------------------------------------------------------------------------
-status: Display current status of the elevator
-
-    Command:    'node ./<working-dir>/elevator status'
-
-    Parameters:
-        --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
-        --working-dir= (-w=, o) Location to construct elevator (./data-elevator)
-        --verbose      (-v,  o) Verbose mode
-
-    Examples:
-        node ./data-elevator/elevator status
-        node ./data-elevator/elevator status -c="./config"
+    node ./<working-dir>/elevator status
 
 ----------------------------------------------------------------------------------
-list: Display a list of all floors
+LIST: Display a list of all floors
 
-    Command:    'node ./<working-dir>/elevator list'
-
-    Parameters:
-        --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
-        --working-dir= (-w=, o) Location to construct elevator (./data-elevator)
-        --verbose      (-v,  o) Verbose mode
-
-    Examples:
-        node ./data-elevator/elevator list
-        node ./data-elevator/elevator list -c="./config"
+    node ./<working-dir>/elevator list

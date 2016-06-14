@@ -1,6 +1,6 @@
 var config = {
     levelControllerConfig: {
-        fileName: "current_level1.json"
+        fileName: "current_level.json"
     }
 }
 
