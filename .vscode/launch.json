@@ -165,7 +165,7 @@
 			"name": "Test",
 			"type": "node",
 			"request": "launch",
-			"program": "${workspaceRoot}/test.js",
+			"program": "${workspaceRoot}/test/test.js",
 			"stopOnEntry": false,
 			"args": ["help"],
 			"cwd": "${workspaceRoot}",

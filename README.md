@@ -4,21 +4,23 @@ The data elevator is an easy to use and very flexible utility for migrating data
 
 # QUICKSTART #
 
-1 Install
+**STEP 1:** Install
 ```
 npm install data-elevator
 ```
-2 Construct a new data elevator for the project.
+**STEP 2:** Construct a new data elevator for the project.
 ```
 node ./node-modules/data-elevator construct
 ```
-3 Add a new migration.
+**STEP 3:** Add a new migration.
 ```
-node ./data-elevator/elevator add --name="add phone number to users"
+node ./data-elevator/elevator add "add phone number to users"
 ```
-4 Enter you migration code in the generated floor file located in './data-elevator/floors/'.
-
-5 Move the elevator to migrate data.
+**STEP 4:** Enter you migration code in the generated floor file.
+```
+see: ./data-elevator/floors/
+```
+**STEP 5:** Move the elevator to migrate data.
 ```
 node ./data-elevator/elevator move top
 node ./data-elevator/elevator move ground
@@ -56,12 +58,6 @@ Some custom level controller implementations are already available in NPM:
 
 # COMMANDS #
 
-Parameters explained:
-
-```
---<parameter_name> (<alias>, <r=required, o=optional>) <description>     
-```
-
 ### CONSTRUCT ###
 
 Construct a new data elevator in you project. In principle this command is only performed once per project.
@@ -75,13 +71,10 @@ node ./node-modules/data-elevator construct
 A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
 
 ```
-node ./<working-dir>/elevator add --name=<name>
-    
-Parameters:
-    --name=        (-n=, o) Custom name of the floor
+node ./<working-dir>/elevator add <name>
 
 Examples:
-    node ./data-elevator/elevator add -n="migrating users"
+    node ./data-elevator/elevator add "migrating users"
 ```
 
 ### MOVE ###
@@ -113,15 +106,17 @@ Display a list of all floors.
 node ./<working-dir>/elevator list
 ```
 
-### ADDITIONAL PARAMETERS ###
+### OPTIONAL PARAMETERS ###
 
 The parameters can be applied to any command
 
 ```
+--<parameter_name> (<alias>) <description>     
+
 Parameters:
-    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
-    --working-dir= (-w=, o) Data elevator (def=./data-elevator)
-    --verbose      (-v,  o) Verbose mode
+    --config-dir=  (-c=) Data elevator config dir (default=./data-elevator)
+    --working-dir= (-w=) Data elevator working dir (def=./data-elevator)
+    --verbose      (-v)  Verbose mode
 ```
 
 # FLOOR TEMPLATE #

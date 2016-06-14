@@ -1,6 +1,6 @@
 {
   "name": "data-elevator",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0",
   "description": "Flexible utility for managing migrations of data sources",
   "main": "elevator.js",
   "bin" : { 
@@ -10,6 +10,8 @@
     "migrate",
     "migration",
     "migrations",
+    "migrate database",
+    "database migrate",
     "migrate data",
     "data migrate",
     "database migration",
@@ -18,14 +20,12 @@
     "upgrade",
     "data-elevator",
     "elevate data",
-    "data",
     "datasource",
-    "database",
-    "utility"  ],
+    "database" ],
   "bugs": "https://bitbucket.org/cacadu/data-elevator/issues/",
   "license": "MIT",
   "scripts": {
-    "test": "test.js"
+    "test": "node ./test/test.js"
   },
   "author": "Marco Jonker",
   "files": [
@@ -34,9 +34,9 @@
     "LICENSE",
     "CHANGELOG",
     "elevator.js",
-    "test.js",
     "lib",
-    "bin"
+    "bin",
+    "test"
   ],
   "repository" : { 
     "type" : "git",
