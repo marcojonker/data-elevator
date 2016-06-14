@@ -14,7 +14,7 @@ node ./node-modules/data-elevator construct
 ```
 3 Add a new migration.
 ```
-node ./data-elevator/elevator add --name="add phone number to users"
+node ./data-elevator/elevator add "add phone number to users"
 ```
 4 Enter you migration code in the generated floor file located in './data-elevator/floors/'.
 
