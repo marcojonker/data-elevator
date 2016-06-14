@@ -56,12 +56,6 @@ Some custom level controller implementations are already available in NPM:
 
 # COMMANDS #
 
-Parameters explained:
-
-```
---<parameter_name> (<alias>, <r=required, o=optional>) <description>     
-```
-
 ### CONSTRUCT ###
 
 Construct a new data elevator in you project. In principle this command is only performed once per project.
@@ -75,13 +69,10 @@ node ./node-modules/data-elevator construct
 A new floor file will be created in which data migrations can be implemented. It is recommended to use the '--name' parameters for easier identification of the purpose of a floor.
 
 ```
-node ./<working-dir>/elevator add --name=<name>
-    
-Parameters:
-    --name=        (-n=, o) Custom name of the floor
+node ./<working-dir>/elevator add <name>
 
 Examples:
-    node ./data-elevator/elevator add -n="migrating users"
+    node ./data-elevator/elevator add "migrating users"
 ```
 
 ### MOVE ###
@@ -118,6 +109,8 @@ node ./<working-dir>/elevator list
 The parameters can be applied to any command
 
 ```
+--<parameter_name> (<alias>, <r=required, o=optional>) <description>     
+
 Parameters:
     --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
     --working-dir= (-w=, o) Data elevator (def=./data-elevator)
