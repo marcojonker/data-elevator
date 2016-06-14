@@ -106,17 +106,17 @@ Display a list of all floors.
 node ./<working-dir>/elevator list
 ```
 
-### ADDITIONAL PARAMETERS ###
+### OPTIONAL PARAMETERS ###
 
 The parameters can be applied to any command
 
 ```
---<parameter_name> (<alias>, <r=required, o=optional>) <description>     
+--<parameter_name> (<alias>) <description>     
 
 Parameters:
-    --config-dir=  (-c=, o) Data elevator config dir (default=./data-elevator)
-    --working-dir= (-w=, o) Data elevator (def=./data-elevator)
-    --verbose      (-v,  o) Verbose mode
+    --config-dir=  (-c=) Data elevator config dir (default=./data-elevator)
+    --working-dir= (-w=) Data elevator working dir (def=./data-elevator)
+    --verbose      (-v)  Verbose mode
 ```
 
 # FLOOR TEMPLATE #

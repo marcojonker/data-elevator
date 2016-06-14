@@ -5,18 +5,6 @@
 **                                                                               **                  
 ***********************************************************************************
 
-Parameter description:
-    --<parameter_name> (<alias>, <r=required, o=optional>) <description> (default)    
-
-----------------------------------------------------------------------------------
-DEFAULT PARAMETERS: these parameters can be used with any command
-
-    Parameters:
-        --config-dir=  (-c=, o) Data elevator config dir (./data-elevator)
-        --working-dir= (-w=, o) Location to construct elevator (./data-elevator)
-        --verbose      (-v,  o) Verbose mode
-
-
 ----------------------------------------------------------------------------------
 CONSTRUCT: Construct a new data elevator for the current project
 
@@ -51,3 +39,14 @@ STATUS: Display current status of the elevator
 LIST: Display a list of all floors
 
     node ./<working-dir>/elevator list
+
+----------------------------------------------------------------------------------
+OPTIONAL PARAMETERS: These parameters can be used with any command
+    
+    Parameter description:
+        --<parameter_name> (<alias>) <description> (default)    
+
+    Parameters:
+        --config-dir=  (-c=) Data elevator config dir (./data-elevator)
+        --working-dir= (-w=) Data elevator working dir (./data-elevator)
+        --verbose      (-v ) Verbose mode
