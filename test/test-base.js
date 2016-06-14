@@ -50,8 +50,8 @@ TestBase.prototype.runTest = function(index, commandTest, callback) {
 /**
  * Run a default set of commands
  */
-TestBase.prototype.runDefaultCommands = function() {
-    var commands = [
+TestBase.prototype.runDefaultCommandTests = function() {
+    var commandTests = [
         { title: "DISPLAY HELP",        command: { command: 'help' } }, 
         { title: "CONSTRUCT ELEVATOR",  command: { command: "construct", workingDir: "./_data-elevator-test" } },
         { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test", verbose:true} },
@@ -79,21 +79,21 @@ TestBase.prototype.runDefaultCommands = function() {
         { title: "PRINT LIST",          command: { command: "list", workingDir: "./_data-elevator-test" } },
     ];
 
-    this.run(commands);   
+    this.run(commandTests);   
 } 
 
 /**
  * Run commands
  * @param commands
  */
-TestBase.prototype.run = function(commands) {
+TestBase.prototype.run = function(commandTests) {
     var index = 1;
     var self = this;
-    async.eachSeries(commands, function(command, callback) {
+    async.eachSeries(commandTests, function(commandTest, callback) {
         if(self.config) {
-            command.config = self.config;
+            commandTest.command.config = self.config;
         }
-        self.runTest(index, command, callback);
+        self.runTest(index, commandTest, callback);
         index++;
     }, function(error) {
         console.log("Remove the folder './_data-elevator-test' to run the test again.");
