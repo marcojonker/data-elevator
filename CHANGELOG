@@ -4,6 +4,24 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.0.0] - 2016-06-14
+### Added
+- move command
+- marker for current floor in list command
+
+### Removed
+- up commnad
+- down command
+
+### Changed
+- add command 'elevator add -n="test migration"' => 'elevator add "test migration"'
+- documentation
+- testing code
+- direction property removed from level class
+
+### Fixes
+- callback issue in printing 
+
 ## [1.1.0] - 2016-06-08
 ### Added
 - Global execute for global installation
