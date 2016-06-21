@@ -1,5 +1,6 @@
 [![npm version](https://badge.fury.io/js/data-elevator.svg)](https://badge.fury.io/js/data-elevator)
 [![npm](https://img.shields.io/npm/dm/localeval.svg?maxAge=2592000?style=flat-square)](https://badge.fury.io/js/data-elevator)
+[![npm](https://img.shields.io/npm/dm/localeval.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/data-elevator)
 
 # DATA ELEVATOR #
 
