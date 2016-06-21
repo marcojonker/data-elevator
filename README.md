@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/npm.svg?maxAge=2592000)](https://www.npmjs.com/package/data-elevator)
+[![npm version](https://badge.fury.io/js/data-elevator.svg)](https://badge.fury.io/js/data-elevator)
 
 # DATA ELEVATOR #
 
