@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/data-elevator.svg)](https://badge.fury.io/js/data-elevator)
+
 # DATA ELEVATOR #
 
 The data elevator is an easy to use and very flexible utility for migrating data sources. Every floor is a migration and the current level the current active migration.
