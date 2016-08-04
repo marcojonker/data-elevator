@@ -223,6 +223,7 @@ The custom level controller is what makes the data elevator extremely flexible. 
 
 A custom level controller needs to be derived from BaseLevelController and needs to implement the methods 'saveCurrentLevel' and 'retrieveCurrentLevel'. A simple example of a custom level controller is shown below. *(Note: we left out all the error handling to keep the example short and to the point)*
 
+Optionally the getManaul function can be implement to display a custom manual when the help command is executed.
 
 ```
 /**
