@@ -52,7 +52,7 @@ TestBase.prototype.runTest = function(index, commandTest, callback) {
  */
 TestBase.prototype.runDefaultCommandTests = function() {
     var commandTests = [
-        { title: "DISPLAY HELP",        command: { command: 'help' } }, 
+        { title: "DISPLAY HELP",        command: { command: 'help', workingDir: "./_data-elevator-test" } }, 
         { title: "CONSTRUCT ELEVATOR",  command: { command: "construct", workingDir: "./_data-elevator-test" } },
         { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test", verbose:true} },
         { title: "ADD FLOOR",           command: { command: "add", workingDir: "./_data-elevator-test", name: "second floor" } },
