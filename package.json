@@ -42,9 +42,9 @@
     "type" : "git",
     "url" : "https://github.com/marcojonker/data-elevator.git"
   },
-  "homepage" : "https://github.com/marcojonker/data-elevator",
+  "homepage" : "http:/cacadu.nl/opensource",
   "dependencies" : {
-    "async": "^1.x"
+    "async": "^2.x"
   },
   "engines": {
     "node": ">=5.0.0"
