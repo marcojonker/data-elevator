@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.2.0] - 2016-11-04
+### Updated
+- Tested with NodeJs 7
+- Async dependency version
+- Documentation
+
 ## [2.1.0] - 2016-08-04
 ### Added
 - custom manual for custom level controllers
