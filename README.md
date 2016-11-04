@@ -298,7 +298,6 @@ elevator.run(function(error) { });
 The elevator can also run from code.
 
 ```
-var util = require('util');
 var ElevatorBase = require('data-elevator/lib/elevator-engine/elevator-base.js');
 var ConsoleLogger = require('data-elevator/lib/logger/console-logger');
 var FileLevelController = require('data-elevator/lib/level-controllers/file-level-controller');
@@ -306,16 +305,10 @@ var FileLevelController = require('data-elevator/lib/level-controllers/file-leve
 /**
  * Constructor
  */
-var Elevator = function(logger, LevelController) {
-    Elevator.super_.apply(this, arguments);
-};
+var elevator = new ElevatorBase(new ConsoleLogger(false), FileLevelController);
 
-util.inherits(Elevator, ElevatorBase);
-
-var elevator = new Elevator(new ConsoleLogger(false), FileLevelController);
-
-elevator.runCommand({'command': 'help'}, function(error) {});
-elevator.runCommand({'command': 'add', 'name': 'update users', 'workingDir': '.\data-elevator'}, function(error) {});
-elevator.runCommand({'command': 'move', 'floor':2, 'workingDir': '.\data-elevator'}, , function(error) {});
-elevator.runCommand({'command': 'status', 'workingDir': '.\data-elevator'} , function(error) {});
+elevator.runCommand({command: 'help'}, function(error) {});
+elevator.runCommand({command: 'add', name: 'update users', workingDir: '.\data-elevator'}, function(error) {});
+elevator.runCommand({command: 'move', floor: 2,'workingDir: '.\data-elevator'}, , function(error) {});
+elevator.runCommand({command: 'status', workingDir: '.\data-elevator'} , function(error) {});
 ```
