@@ -12,7 +12,7 @@ npm install data-elevator
 ```
 **STEP 2:** Construct a new data elevator for the project.
 ```
-node ./node-modules/data-elevator construct
+node ./node_modules/data-elevator construct
 ```
 **STEP 3:** Add a new migration.
 ```
