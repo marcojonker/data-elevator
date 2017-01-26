@@ -147,7 +147,7 @@
 			"request": "launch",
 			"program": "${workspaceRoot}/elevator.js",
 			"stopOnEntry": false,
-			"args": ["down", "-f=0", "-w='./test-data-elevator'", "-v"],
+			"args": ["move", "ground", "-w='./_data-elevator-test'", "-v"],
 			"cwd": "${workspaceRoot}",
 			"preLaunchTask": null,
 			"runtimeExecutable": null,
