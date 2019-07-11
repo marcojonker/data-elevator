@@ -4,3 +4,4 @@ logs/*.log
 data-elevator/
 _data-elevator-test/
 _data-elevator-test-config.js
+.DS_Store
