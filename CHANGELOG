@@ -4,6 +4,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [3.0.0] - 2019-06-11
+
+### Updated
+- Updated dependency (async)
+
+### Changed
+- Remove unneeded requires
+- Updated coding convension
+- Removed test logs
+
 ## [2.2.2] - 2017-28-01
 ### Fix
 - Fix for usage with symlinks
