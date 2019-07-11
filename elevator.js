@@ -3,7 +3,7 @@
  * Data elevator
 **/
 
-'use strict'
+'use strict';
 
 var ElevatorBase = require('./lib/elevator-engine/elevator-base.js');
 var ConsoleLogger = require('./lib/logger/console-logger.js');
