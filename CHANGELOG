@@ -4,6 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [4.0.0] - 2021-21-09
+
+### Updated
+- Refactor code
+- Update integration test
+- Updated dependency (async)
+
 ## [3.0.0] - 2019-06-11
 
 ### Updated
