@@ -151,11 +151,13 @@ module.exports = {
 The FloorWorkerParameters gives access to the current configuration, the logger and the current floor object. 
 
 ```
-var FloorWorkerParameters = function(config, logger, floor) {
-    this.config = config;
-    this.floor = floor;
-    this.logger = logger;
-};
+class FloorWorkerParameters {
+    constructor(config, logger, floor) {
+        this.config = config;
+        this.floor = floor;
+        this.logger = logger;
+    }
+}
 ```
 
 # CUSTOM STUFF #
@@ -167,41 +169,27 @@ All the custom stuff can be implemented in '<working-dir>/elevator.js'.
  * Elevator
  * Data elevator
 **/
-
-'use strict'
-
-var util = require('util');
 var ElevatorBase = require('data-elevator/lib/elevator-engine/elevator-base');
 var ConsoleLogger = require('data-elevator/lib/logger/console-logger');
 var FileLevelController = require('data-elevator/lib/level-controllers/file-level-controller');
 
-/**
- * Constructor
- * @param logger
- * @param LevelController
- */
-var Elevator = function(logger, LevelController) {
-    Elevator.super_.apply(this, arguments);
-};
+class Elevator extends ElevatorBase {
+    /**
+    * Initialize custom components after all migrations have been applied
+    * @param callback(error)
+    */
+    onInitialize(callback) {
+        return callback(null);
+    };
 
-util.inherits(Elevator, ElevatorBase);
-
-/**
- * Initialize custom components after all migrations have been applied
- * @param callback(error)
- */
-ElevatorBase.prototype.onInitialize = function(callback) {
-    return callback(null);
-};
-
-/**
- * Uninitiailze custom components after all migrations have been applied
- * @param callback(error)
- */
-ElevatorBase.prototype.onUnInitialize = function(callback) {
-    return callback(null);
+    /**
+    * Uninitiailze custom components after all migrations have been applied
+    * @param callback(error)
+    */
+    onUnInitialize(callback) {
+        return callback(null);
+    }
 }
-
 
 var elevator = new Elevator(new ConsoleLogger(false), FileLevelController);
 
@@ -230,41 +218,30 @@ Optionally the getManaul function can be implement to display a custom manual wh
  * MyLevelController
 **/
 
-'use strict'
-
-var util = require('util');
 var fs = require('fs')
 var BaseLevelController = require('data-elevator/lib/level-controllers/base-level-controller');
 var Level = require('data-elevator/lib/level-controllers/level');
 
-/**
- * Constructor
- * @param config
- */
-var MyLevelController = function(config) {
-    MyLevelController.super_.apply(this, arguments);
-};
+class MyLevelController extends BaseLevelController {
+    /**
+    * Save the current level
+    * @param level
+    * @param callback(error)
+    */
+    saveCurrentLevel(level, callback) {
+        fs.writeFileSync(config.levelControllerConfig.levelFilePath, JSON.stringify(level));
+        return callback(null);
+    }
 
-util.inherits(MyLevelController, BaseLevelController);
-
-/**
- * Save the current level
- * @param level
- * @param callback(error)
- */
-MyLevelController.prototype.saveCurrentLevel = function(level, callback) {
-    fs.writeFileSync(config.levelControllerConfig.levelFilePath, JSON.stringify(level));
-    return callback(null);
-};
-
-/**
- * Retrieve the current level
- * @param callback(error, level)
- */
-MyLevelController.prototype.retrieveCurrentLevel = function(callback) {
-    var json = fs.readFileSync(filePath, "utf8");
-    return callback(error, Level.fromJson(json));
-};
+    /**
+    * Retrieve the current level
+    * @param callback(error, level)
+    */
+    retrieveCurrentLevel(callback) {
+        var json = fs.readFileSync(filePath, "utf8");
+        return callback(error, Level.fromJson(json));
+    }
+}
 
 module.exports = MyLevelController;
 ```
@@ -273,19 +250,12 @@ After creating the custom level controller it needs to be plugin in to the eleva
 
 
 ```
-var util = require('util');
 var ElevatorBase = require('data-elevator/lib/elevator-engine/elevator-base');
 var ConsoleLogger = require('data-elevator/lib/logger/console-logger');
 var MyLevelController = require('<path-to>/my-level-controller.js');
 
-/**
- * Constructor
- */
-var Elevator = function(logger, LevelController) {
-    Elevator.super_.apply(this, arguments);
-};
-
-util.inherits(Elevator, ElevatorBase);
+class Elevator extends ElevatorBase {
+}
 
 var elevator = new Elevator(new ConsoleLogger(false), MyLevelController);
 
