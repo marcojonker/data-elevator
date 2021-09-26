@@ -10,6 +10,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Refactor code
 - Update integration test
 - Updated dependency (async)
+- Removed command line utils and start using npm module command-line-director
+- Removed manual and start using generated documentation
 
 ## [3.0.0] - 2019-06-11
 
