@@ -4,12 +4,15 @@ module.exports = {
     commonjs: true,
     es2021: true
   },
-  extends: [
-    'standard'
-  ],
   parserOptions: {
     ecmaVersion: 12
   },
-  rules: {
+  "extends": "eslint:recommended",
+  "rules": {
+      // enable additional rules
+      "indent": ["error", 2],
+
+      // disable rules from base configurations
+      "no-unused-vars": "off",
   }
 }
