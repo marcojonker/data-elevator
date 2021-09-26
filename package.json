@@ -45,7 +45,8 @@
   },
   "homepage": "http://www.cacadu.eu/opensource",
   "dependencies": {
-    "async": "^3.1.0"
+    "async": "^3.1.0",
+    "command-line-director": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
