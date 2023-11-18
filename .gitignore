@@ -6,3 +6,4 @@ _data-elevator-test/
 _data-elevator-test-config.js
 .DS_Store
 tmp/
+coverage/
