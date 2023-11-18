@@ -7,12 +7,16 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 12
   },
-  "extends": "eslint:recommended",
-  "rules": {
-      // enable additional rules
-      "indent": ["error", 2],
-
-      // disable rules from base configurations
-      "no-unused-vars": "off",
-  }
+  rules: {
+  },
+  overrides: [
+    {
+      files: [
+        "**/*.test.js"
+      ],
+      env: {
+        jest: true
+      }
+    }
+  ]
 }
