@@ -11,5 +11,15 @@ module.exports = {
     ecmaVersion: 12
   },
   rules: {
-  }
+  },
+  overrides: [
+    {
+      files: [
+        "**/*.test.js"
+      ],
+      env: {
+        jest: true
+      }
+    }
+  ]
 }
