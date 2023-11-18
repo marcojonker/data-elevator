@@ -1,6 +1,6 @@
 {
   "name": "data-elevator",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Flexible utility for managing migrations of data sources",
   "main": "elevator.js",
   "bin": {
@@ -61,6 +61,6 @@
     "jest": "^28.1.3"
   },
   "engines": {
-    "node": ">=12.10.0"
+    "node": ">=14"
   }
 }
