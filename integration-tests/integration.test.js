@@ -8,9 +8,10 @@ const ConsoleLogger = require('../lib/logger/console-logger.js')
 const FileLevelController = require('../lib/level-controllers/file-level-controller.js')
 
 let elevator = null
+let tempTestFilesFolder = null
 
 beforeEach(function () {
-  const tempTestFilesFolder = path.join(process.cwd(), 'tmp')
+  tempTestFilesFolder = path.join(process.cwd(), 'tmp')
   if (fs.existsSync(tempTestFilesFolder)) {
     fs.rmdirSync(tempTestFilesFolder, { recursive: true })
   }
@@ -21,6 +22,17 @@ beforeEach(function () {
 const runTestCommand = function (index, commandTest, callback) {
   console.log('INTEGRATION TEST ' + index + ': ' + commandTest.title)
   elevator.runCommand(commandTest.command, function (error) {
+    const currentLevelPath = path.join(tempTestFilesFolder, 'level/current_level.json');
+    if(commandTest.expectedFloor) {
+      if(fs.existsSync(currentLevelPath)) {
+        const jsonString = fs.readFileSync(currentLevelPath, { encoding: 'utf8', flag: 'r' });
+        const json = JSON.parse(jsonString);
+        expect(json.identifier).toBe(commandTest.expectedFloor);
+      } else {
+        error = 'Current level not found while expected'
+      }
+    }
+
     return callback(error)
   })
 }
@@ -39,18 +51,22 @@ describe('Integration test', function () {
       { title: 'ADD FLOOR', command: { command: 'add', workingDir: './tmp', name: 'add phone number to users' } },
       { title: 'ADD FLOOR', command: { command: 'add', workingDir: './tmp' } },
       { title: 'ADD FLOOR', command: { command: 'add', workingDir: './tmp' } },
-      { title: 'MOVE TO TOP', command: { command: 'move', workingDir: './tmp', floor: 'top' } },
-      { title: 'MOVE TO GROUND', command: { command: 'move', workingDir: './tmp', floor: 'ground' } },
-      { title: 'MOVE DOWN TO 5', command: { command: 'move', workingDir: './tmp', floor: 5 } },
-      { title: 'MOVE DOWN TO 2', command: { command: 'move', workingDir: './tmp', floor: 2 } },
-      { title: 'MOVE UP TO 2', command: { command: 'move', workingDir: './tmp', floor: 2 } },
-      { title: 'MOVE UP TO 6', command: { command: 'move', workingDir: './tmp', floor: 6 } },
+      { title: 'MOVE TO TOP', command: { command: 'move', workingDir: './tmp', floor: 'top' }, expectedFloor: '9' },
+      { title: 'MOVE TO GROUND', command: { command: 'move', workingDir: './tmp', floor: 'ground' }, expectedFloor: '0' },
+      { title: 'MOVE DOWN TO 5', command: { command: 'move', workingDir: './tmp', floor: 5 }, expectedFloor: '5'},
+      { title: 'MOVE DOWN TO 2', command: { command: 'move', workingDir: './tmp', floor: 2 }, expectedFloor: '2' },
+      { title: 'MOVE UP TO 2', command: { command: 'move', workingDir: './tmp', floor: 2 }, expectedFloor: '2' },
+      { title: 'MOVE UP TO 6', command: { command: 'move', workingDir: './tmp', floor: 6 }, expectedFloor: '6' },
+      { title: 'MOVE DOWN 3 FLOORS', command: { command: 'move', floor: 'down', workingDir: './tmp', count: 3 }, expectedFloor: '3' },
+      { title: 'MOVE UP 2 FLOORS', command: { command: 'move', floor: 'up', workingDir: './tmp', count: 2 }, expectedFloor: '5' },
+      { title: 'MOVE DOWN 20 FLOORS', command: { command: 'move', floor: 'down', workingDir: './tmp', count: 20 }, expectedFloor: '0' },
+      { title: 'MOVE UP 20 FLOORS', command: { command: 'move', floor: 'up', workingDir: './tmp', count: 20 }, expectedFloor: '9' },
       { title: 'PRINT STATUS', command: { command: 'status', workingDir: './tmp' } },
       { title: 'PRINT LIST', command: { command: 'list', workingDir: './tmp' } },
-      { title: 'MOVE TO GROUND', command: { command: 'move', workingDir: './tmp', floor: 'ground' } },
+      { title: 'MOVE TO GROUND', command: { command: 'move', workingDir: './tmp', floor: 'ground'}, expectedFloor: '0' },
       { title: 'PRINT STATUS', command: { command: 'status', workingDir: './tmp' } },
       { title: 'PRINT LIST', command: { command: 'list', workingDir: './tmp' } },
-      { title: 'MOVE TO TOP', command: { command: 'move', workingDir: './tmp', floor: 'top' } },
+      { title: 'MOVE TO TOP', command: { command: 'move', workingDir: './tmp', floor: 'top' }, expectedFloor: '9' },
       { title: 'PRINT STATUS', command: { command: 'status', workingDir: './tmp' } },
       { title: 'PRINT LIST', command: { command: 'list', workingDir: './tmp' } }
     ]

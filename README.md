@@ -81,7 +81,13 @@ Examples:
 
 ### MOVE ###
 
-Elevator will move and perform the migrations for each floor passed by. Use 'ground' to move to ground floor and 'top' to move to the top floor.
+Elevator will move and perform the migrations for each floor passed by. 
+* Use 'ground' to move to ground floor 
+* Use 'top' to move to the top floor
+* Use 'up' to move one floor up
+* Use 'up <number>' to move a specific number of floors up
+* Use 'down' to move one floor down
+* Use 'down <number>' to move a specific number of floors down
 
 ```
 node ./<working-dir>/elevator move <floor>
@@ -90,6 +96,8 @@ Examples:
     node ./data-elevator/elevator move top
     node ./data-elevator/elevator move 5
     node ./data-elevator/elevator move ground
+    node ./data-elevator/elevator up 2
+    node ./data-elevator/elevator down 3
 ```
 
 ### STATUS ###
